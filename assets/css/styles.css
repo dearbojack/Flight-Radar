@@ -1,0 +1,32 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.jumbotron {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+#news-results {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#content {
+    margin: 0;
+}
+.card {
+    max-width: 24rem;
+}
+
+#content-row {
+    display: flex;
+
+    justify-content: space-between;
+}
+
+@media screen {
+    
+}
