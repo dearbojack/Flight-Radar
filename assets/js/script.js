@@ -14,67 +14,79 @@ let year = 2023;
 let beginDate = parseInt(year) + "0101";
 let endDate = parseInt(year) + "1231";
 
-// build query url
-var queryUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${countrySelect}&begin_date=${beginDate}&end_date=${endDate}&api-key=${apiKey}`;
+function buildQueryUrl(country, year) {
+  let bDate = generateDate(year).start_date;
+  let eDate = generateDate(year).end_date;
+  return queryUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${country}&begin_date=${bDate}&end_date=${eDate}&api-key=${apiKey}`;
+}
 
-// call api
-$.ajax({
-  url: queryUrl,
-  method: "GET"
-}).then( function(r) {
-    console.log(queryUrl);
-    console.log(r);
-    // get the array of all news returned
-    let docArray = r.response.docs;
-    
-    for (let i = 0; i < docArray.length; i++) {
-      let media = r.response.docs[i].multimedia;
+function getNews() {
+  // clear the content
+  $("#news-results").empty();
 
-      if(media === []) {
-        // skip card creation if no image
-        return;
-      } else {
-        // create news card if there are image
-        console.log(media[0].url);
-        let image = media.find(image => image.subtype === 'articleInline');
-        let imgeUrl = 'https://www.nytimes.com/' + image.url;
-        imageEl = $("<img>").attr("src", imgeUrl);
+  // call api and fill in new content
+  $.ajax({
+    url: queryUrl,
+    method: "GET"
+  }).then( function(r) {
+      console.log(queryUrl);
+      console.log(r);
+      // get the array of all news returned
+      let docArray = r.response.docs;
+      
+      for (let i = 0; i < docArray.length; i++) {
+        let media = r.response.docs[i].multimedia;
 
-        // get headline and link it
-        let headLine = docArray[i].headline.main;
-        let webUrl = docArray[i].web_url;
-        let headLineWLink = $("<h3>").html(`<a href="${webUrl}">${headLine}</a>`);
-        
-        // get author
-        let byline = $("<p>").text(docArray[i].byline.original);
+        if(media === []) {
+          // skip card creation if no image
+          return;
+        } else {
+          // create news card if there are image
+          // console.log(media[0].url);
+          let image = media.find(image => image.subtype === 'articleInline');
+          let imgeUrl = 'https://www.nytimes.com/' + image.url;
+          imageEl = $("<img>").attr("src", imgeUrl);
 
-        // get word count and calc reading time
-        let wordCount = $("<p>").text("Estimated reading time: " + calculateReadingTime(docArray[i].word_count));
+          // get headline and link it
+          let headLine = docArray[i].headline.main;
+          let webUrl = docArray[i].web_url;
+          let headLineWLink = $("<h3>").html(`<a href="${webUrl}">${headLine}</a>`);
+          
+          // get author
+          let byline = $("<p>").text(docArray[i].byline.original);
 
-        // get pub date & format it
-        let date = moment(docArray[i].pub_date);
-        let formattedDate = date.format("YYYY-MM-DD");
-        let pubDate = $("<p>").text(formattedDate);
+          // get word count and calc reading time
+          let wordCount = $("<p>").text("Estimated reading time: " + calculateReadingTime(docArray[i].word_count));
 
-        // get snippet
-        let snippet = $("<p>").text(docArray[i].snippet);
+          // get pub date & format it
+          let date = moment(docArray[i].pub_date);
+          let formattedDate = date.format("YYYY-MM-DD");
+          let pubDate = $("<p>").text(formattedDate);
 
-        // create news card
-        let newsCardDiv = $("<div>").addClass("card col-12");
-        let newsCardBody = $("<div>").addClass("card-body");
-        newsCardBody.append(headLineWLink, pubDate, wordCount, byline, snippet);
-        newsCardDiv.append(imageEl, newsCardBody);
+          // get snippet
+          let snippet = $("<p>").text(docArray[i].snippet);
 
-        // newsCardDiv.append(imageEl, headLineWLink, pubDate, wordCount, byline, webUrl, snippet);
-        $("#news-results").append(newsCardDiv);
+          // create news card
+          let newsCardDiv = $("<div>").addClass("card col-12");
+          let newsCardBody = $("<div>").addClass("card-body");
+          newsCardBody.append(headLineWLink, pubDate, wordCount, byline, snippet);
+          newsCardDiv.append(imageEl, newsCardBody);
+
+          // newsCardDiv.append(imageEl, headLineWLink, pubDate, wordCount, byline, webUrl, snippet);
+          $("#news-results").append(newsCardDiv);
+        }
       }
-    }
 
-    // add copyright footer // this can be hardcoded
-    let credit = r.copyright;
-    let footer = $("<footer>").text(credit);
-    $("body").append(footer);
-});
+      // add copyright footer // this can be hardcoded
+      let credit = r.copyright;
+      let footer = $("<footer>").text(credit);
+      $("body").append(footer);
+  });
+  
+}
+
+// build query url
+var queryUrl = buildQueryUrl(2023, "China");
 
 // func to calc reading time based on word count
 function calculateReadingTime(wordCount) {
@@ -89,20 +101,19 @@ function calculateReadingTime(wordCount) {
 }
 
 function getRandomCountry() {
-  $.ajax({
-    url: 'https://restcountries.com/v2/all?fields=name',
-    success: function(countries) {
-      const randomIndex = Math.floor(Math.random() * countries.length);
-      const randomCountry = countries[randomIndex].name;
-  
-      return randomCountry;
-    }
+  fetch('https://restcountries.com/v2/all?fields=name')
+  .then(response => response.json())
+  .then(countries => {
+    const randomIndex = Math.floor(Math.random() * countries.length);
+    const randomCountry = countries[randomIndex].name;
+
+    console.log(randomCountry);
   });
 }
 
 function generateDate(year) {
-  const startDate = year.toString() + "0101";
-  const endDate = year.toString() + "1231";
+  const startDate = year + "0101";
+  const endDate = year + "1231";
 
   return { 
     start_date: startDate,
@@ -113,3 +124,18 @@ function generateDate(year) {
 function generateRandomYear() {
   return year = Math.floor(Math.random() * (2023 - 1970 + 1)) + 1970;
 }
+
+$("#default").on("click", function() {
+  let queryUrl = buildQueryUrl("China", 2023);
+  getNews();
+})
+
+$("#random-country").on("click", function() {
+  let queryUrl = buildQueryUrl(getRandomCountry(), 2023);
+  getNews();
+})
+
+$("#feeling-lucky").on("click", function() {
+  let queryUrl = buildQueryUrl(generateDate(generateRandomYear()), getRandomCountry());
+  getNews();
+})
