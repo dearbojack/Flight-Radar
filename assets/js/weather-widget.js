@@ -8,6 +8,8 @@ async function getCapital(countryName) {
     }
 }
 
+const weatherApiKey = "95d15e0dac6e9067bba1f640b9fb69f0";
+
 // function to get today weather of a given city
 function renderTodayWeather(city) {
     // build the query url
