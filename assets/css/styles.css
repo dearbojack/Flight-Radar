@@ -64,6 +64,8 @@ body {
     left: 16px;
 }
 
+.ui-autocomplete { z-index:2000; }
+
 
 /* BRAND HEADER (end) ---------------- */
 
