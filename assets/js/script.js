@@ -101,14 +101,11 @@ function calculateReadingTime(wordCount) {
 }
 
 function getRandomCountry() {
-  fetch('https://restcountries.com/v2/all?fields=name')
-  .then(response => response.json())
-  .then(countries => {
+    let countries = ["america", "france", "germany", "japan", "korea", "china", "india", "russia", "iran", "isreal", "united kingdom", "mexico", "brazil", "egypt", "italy", "ukraine"];
     const randomIndex = Math.floor(Math.random() * countries.length);
-    const randomCountry = countries[randomIndex].name;
+    const randomCountry = countries[randomIndex];
 
-    console.log(randomCountry);
-  });
+    return randomCountry;
 }
 
 function generateDate(year) {
@@ -136,6 +133,6 @@ $("#random-country").on("click", function() {
 })
 
 $("#feeling-lucky").on("click", function() {
-  let queryUrl = buildQueryUrl(generateDate(generateRandomYear()), getRandomCountry());
+  let queryUrl = buildQueryUrl(getRandomCountry(), generateRandomYear());
   getNews();
 })
