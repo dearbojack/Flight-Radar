@@ -44,7 +44,13 @@ function getNews() {
           // create news card if there are image
           // console.log(media[0].url);
           let image = media.find(image => image.subtype === 'articleInline');
-          let imgeUrl = 'https://www.nytimes.com/' + image.url;
+          // bugfix if no image type found
+          if(image) {
+            let imgeUrl = 'https://www.nytimes.com/' + image.url;
+          } else {
+            let imageUrl = "https://via.placeholder.com/300";
+          }
+          
           imageEl = $("<img>").attr("src", imgeUrl);
 
           // get headline and link it
