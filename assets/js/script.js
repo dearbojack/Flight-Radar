@@ -87,3 +87,26 @@ function calculateReadingTime(wordCount) {
     return `${readingTime} minute`
   }
 }
+
+function getRandomCountry() {
+  $.ajax({
+    url: 'https://restcountries.com/v2/all?fields=name',
+    success: function(countries) {
+      const randomIndex = Math.floor(Math.random() * countries.length);
+      const randomCountry = countries[randomIndex].name;
+  
+      return randomCountry;
+    }
+  });
+}
+
+function generateRandomDate() {
+  const year = Math.floor(Math.random() * (2023 - 1970 + 1)) + 1970;
+  const startDate = year.toString() + "0101";
+  const endDate = year.toString() + "1231";
+
+  return { 
+    start_date: startDate,
+    end_date: endDate
+  };
+}
