@@ -43,7 +43,7 @@ $.ajax({
         // get headline and link it
         let headLine = docArray[i].headline.main;
         let webUrl = docArray[i].web_url;
-        let headLineWLink = $("<h1>").html(`<a href="${webUrl}">${headLine}</a>`);
+        let headLineWLink = $("<h3>").html(`<a href="${webUrl}">${headLine}</a>`);
         
         // get author
         let byline = $("<p>").text(docArray[i].byline.original);
@@ -60,10 +60,13 @@ $.ajax({
         let snippet = $("<p>").text(docArray[i].snippet);
 
         // create news card
-        let newsCardDiv = $("<div>").addClass("news-card");
+        let newsCardDiv = $("<div>").addClass("card col-12");
+        let newsCardBody = $("<div>").addClass("card-body");
+        newsCardBody.append(headLineWLink, pubDate, wordCount, byline, snippet);
+        newsCardDiv.append(imageEl, newsCardBody);
 
-        newsCardDiv.append(imageEl, headLineWLink, pubDate, wordCount, byline, webUrl, snippet);
-        $("body").append(newsCardDiv);
+        // newsCardDiv.append(imageEl, headLineWLink, pubDate, wordCount, byline, webUrl, snippet);
+        $("#news-results").append(newsCardDiv);
       }
     }
 
