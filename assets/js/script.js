@@ -46,12 +46,12 @@ function getNews() {
           let image = media.find(image => image.subtype === 'articleInline');
           // bugfix if no image type found
           if(image) {
-            let imgeUrl = 'https://www.nytimes.com/' + image.url;
+            let imageUrl = 'https://www.nytimes.com/' + image.url;
+            imageEl = $("<img>").attr("src", imageUrl);
           } else {
             let imageUrl = "https://via.placeholder.com/300";
+            imageEl = $("<img>").attr("src", imageUrl);
           }
-          
-          imageEl = $("<img>").attr("src", imgeUrl);
 
           // get headline and link it
           let headLine = docArray[i].headline.main;
