@@ -1,3 +1,4 @@
+// because this func takes some time to return thus async
 async function getCapital(countryName) {
     try {
         const response = await fetch(`https://restcountries.com/v2/name/${countryName}`);
@@ -52,7 +53,7 @@ function renderTodayWeather(city) {
 
     });
 }
-
+// after getCapital return a value, get the weather
 getCapital("China").then(capital => {
     renderTodayWeather(capital);
     // console.log(`The capital of China is ${capital}.`);
