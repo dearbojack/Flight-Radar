@@ -127,7 +127,7 @@ function generateDate(year) {
 
 function generateRandomYear() {
   // generate a random year between 2000 - 2023 (more likely to have image)
-  return year = Math.floor(Math.random() * (2023 - 1970 + 1)) + 2000;
+  return year = Math.floor(Math.random() * (2023 - 1970 + 1)) + 2010;
 }
 
 $("#default").on("click", function() {
