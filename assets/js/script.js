@@ -16,3 +16,12 @@ let endDate = parseInt(year) + "1231";
 
 // build query url
 var queryUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${countrySelect}&begin_date=${beginDate}&end_date=${endDate}&api-key=${apiKey}`;
+
+// call api
+$.ajax({
+  url: queryUrl,
+  method: "GET"
+}).then( function(r) {
+    console.log(queryUrl);
+    console.log(r);
+});
