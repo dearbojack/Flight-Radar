@@ -1,13 +1,79 @@
+@font-face {
+    font-family: 'Newspaper-font';
+    src: url(/assets/font/Berkahi\ Blackletter.ttf);
+}
+
 body {
     display: flex;
     flex-direction: column;
 }
 
-.jumbotron {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+/* BRAND HEADER ---------------- */
+
+/* Home location */
+.btn-primary {
+    background-color: #e6eaed;
+    border-color: #e6eaed;
+    color: black;
+    font-weight: 500;
+    font-size: small;
 }
+
+.top-right-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+}
+
+.home-location-date {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-size: 255%;
+}
+
+.home-location-date h6 {
+    font-size: small;
+}
+
+
+
+
+/* Jumbotron */
+.jumbotron {
+
+    background-color: white;
+    border-bottom: 2px solid black;
+    
+
+}
+
+#title {
+    font-family: 'Newspaper-font';
+    font-size: 500%;
+    text-align: center;
+}
+
+.jumbotron #title-sub1 {
+    text-align: center;
+}
+
+.jumbotron #todays-date {
+    position: absolute;
+    top: 15px;
+    left: 16px;
+}
+
+
+/* BRAND HEADER (end) ---------------- */
+
+
+
+
+
+
+
+
 
 #news-results {
     display: grid;
