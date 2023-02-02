@@ -66,6 +66,11 @@ $.ajax({
         $("body").append(newsCardDiv);
       }
     }
+
+    // add copyright footer
+    let credit = r.copyright;
+    let footer = $("<footer>").text(credit);
+    $("body").append(footer);
 });
 
 // func to calc reading time based on word count
