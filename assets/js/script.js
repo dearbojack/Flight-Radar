@@ -28,29 +28,43 @@ $.ajax({
     let docArray = r.response.docs;
     
     for (let i = 0; i < docArray.length; i++) {
-      // get headline and link it
-      let headLine = docArray[i].headline.main;
-      let webUrl = docArray[i].web_url;
-      let headLineWLink = $("<h1>").html(`<a href="${webUrl}">${headLine}</a>`);
-      // get author
-      let byline = $("<p>").text(docArray[i].byline.original);
-      // get word count and calc reading time
-      let wordCount = $("<p>").text("Estimated reading time: " + calculateReadingTime(docArray[i].word_count));
+      let media = r.response.docs[i].multimedia;
 
-      // get pub date & format it
-      let date = moment(docArray[i].pub_date);
-      let formattedDate = date.format("YYYY-MM-DD");
-      let pubDate = $("<p>").text(formattedDate);
+      if(media === []) {
+        // skip card creation if no image
+        return;
+      } else {
+        // create news card if there are image
+        console.log(media[0].url);
+        let image = media.find(image => image.subtype === 'articleInline');
+        let imgeUrl = 'https://www.nytimes.com/' + image.url;
+        imageEl = $("<img>").attr("src", imgeUrl);
 
-      // get snippet
-      let snippet = $("<p>").text(docArray[i].snippet);
+        // get headline and link it
+        let headLine = docArray[i].headline.main;
+        let webUrl = docArray[i].web_url;
+        let headLineWLink = $("<h1>").html(`<a href="${webUrl}">${headLine}</a>`);
+        
+        // get author
+        let byline = $("<p>").text(docArray[i].byline.original);
 
-      // create news card
-      let newsCardDiv = $("<div>").addClass("news-card");
+        // get word count and calc reading time
+        let wordCount = $("<p>").text("Estimated reading time: " + calculateReadingTime(docArray[i].word_count));
 
-      newsCardDiv.append(headLineWLink, pubDate, wordCount, byline, webUrl, snippet);
-      $("body").append(newsCardDiv);
-      
+        // get pub date & format it
+        let date = moment(docArray[i].pub_date);
+        let formattedDate = date.format("YYYY-MM-DD");
+        let pubDate = $("<p>").text(formattedDate);
+
+        // get snippet
+        let snippet = $("<p>").text(docArray[i].snippet);
+
+        // create news card
+        let newsCardDiv = $("<div>").addClass("news-card");
+
+        newsCardDiv.append(imageEl, headLineWLink, pubDate, wordCount, byline, webUrl, snippet);
+        $("body").append(newsCardDiv);
+      }
     }
 });
 
