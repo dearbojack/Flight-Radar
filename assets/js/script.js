@@ -34,13 +34,14 @@ $.ajax({
       let headLineWLink = $("<h1>").html(`<a href="${webUrl}">${headLine}</a>`);
       // get author
       let byline = $("<p>").text(docArray[i].byline.original);
-      // get word count
-      let wordCount = $("<p>").text(docArray[i].word_count);
+      // get word count and calc reading time
+      let wordCount = $("<p>").text("Estimated reading time: " + calculateReadingTime(docArray[i].word_count));
+
       // get pub date & format it
       let date = moment(docArray[i].pub_date);
       let formattedDate = date.format("YYYY-MM-DD");
       let pubDate = $("<p>").text(formattedDate);
-      
+
       // get snippet
       let snippet = $("<p>").text(docArray[i].snippet);
 
@@ -52,3 +53,15 @@ $.ajax({
       
     }
 });
+
+// func to calc reading time based on word count
+function calculateReadingTime(wordCount) {
+  const averageReadingSpeed = 200; // words per minute
+  const readingTime = Math.ceil(wordCount / averageReadingSpeed);
+  // singlar or plural
+  if(readingTime > 1) {
+    return `${readingTime} minutes`
+  } else {
+    return `${readingTime} minute`
+  }
+}
