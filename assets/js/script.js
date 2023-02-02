@@ -70,7 +70,7 @@ $.ajax({
       }
     }
 
-    // add copyright footer
+    // add copyright footer // this can be hardcoded
     let credit = r.copyright;
     let footer = $("<footer>").text(credit);
     $("body").append(footer);
@@ -100,8 +100,7 @@ function getRandomCountry() {
   });
 }
 
-function generateRandomDate() {
-  const year = Math.floor(Math.random() * (2023 - 1970 + 1)) + 1970;
+function generateDate(year) {
   const startDate = year.toString() + "0101";
   const endDate = year.toString() + "1231";
 
@@ -109,4 +108,8 @@ function generateRandomDate() {
     start_date: startDate,
     end_date: endDate
   };
+}
+
+function generateRandomYear() {
+  return year = Math.floor(Math.random() * (2023 - 1970 + 1)) + 1970;
 }
