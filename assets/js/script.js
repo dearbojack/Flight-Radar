@@ -36,8 +36,11 @@ $.ajax({
       let byline = $("<p>").text(docArray[i].byline.original);
       // get word count
       let wordCount = $("<p>").text(docArray[i].word_count);
-      // get pub date
-      let pubDate = $("<p>").text(docArray[i].pub_date);
+      // get pub date & format it
+      let date = moment(docArray[i].pub_date);
+      let formattedDate = date.format("YYYY-MM-DD");
+      let pubDate = $("<p>").text(formattedDate);
+      
       // get snippet
       let snippet = $("<p>").text(docArray[i].snippet);
 
