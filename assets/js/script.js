@@ -108,7 +108,7 @@ function calculateReadingTime(wordCount) {
 }
 
 function getRandomCountry() {
-    let countries = ["america", "france", "germany", "japan", "korea", "china", "india", "russia", "iran", "isreal", "united kingdom", "mexico", "brazil", "egypt", "italy", "ukraine"];
+    let countries = ["america", "france", "germany", "japan", "korea", "china", "india", "russia", "iran", "united kingdom", "italy", "ukraine"];
     const randomIndex = Math.floor(Math.random() * countries.length);
     const randomCountry = countries[randomIndex];
 
@@ -126,7 +126,8 @@ function generateDate(year) {
 }
 
 function generateRandomYear() {
-  return year = Math.floor(Math.random() * (2023 - 1970 + 1)) + 1970;
+  // generate a random year between 2000 - 2023 (more likely to have image)
+  return year = Math.floor(Math.random() * (2023 - 1970 + 1)) + 2000;
 }
 
 $("#default").on("click", function() {
