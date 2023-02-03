@@ -1,13 +1,13 @@
 // api to fetch news from NY Times
 
-let searchedCountry = '';
+
 
 // variables: keywords, begin_date, end_date
 // * api
 const apiKey = "YfIUBElKGXDPyEkqeoTHKUNqWudUQyeC";
 
 // * keywords : country names from user selection
-var countrySelect = "america";
+
 
 // * date : current year
 
@@ -16,12 +16,11 @@ let year = 2023;
 let beginDate = parseInt(year) + "0101";
 let endDate = parseInt(year) + "1231";
 
-function buildQueryUrl(country, year) {
+function buildQueryUrl(searchedCountry, year) {
   let bDate = generateDate(year).start_date;
   let eDate = generateDate(year).end_date;
-  return queryUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${country}&begin_date=${bDate}&end_date=${eDate}&api-key=${apiKey}`;
+  return queryUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchedCountry}&begin_date=${bDate}&end_date=${eDate}&api-key=${apiKey}`;
 }
-
 
 function getNews() {
   // clear the content
@@ -99,7 +98,7 @@ function getNews() {
 }
 
 // build query url
-var queryUrl = buildQueryUrl(2023, 'china');
+var queryUrl = buildQueryUrl(2023, searchedCountry);
 
 // func to calc reading time based on word count
 function calculateReadingTime(wordCount) {
@@ -137,7 +136,7 @@ function generateRandomYear() {
 }
 
 $("#default").on("click", function() {
-  let queryUrl = buildQueryUrl("China", 2023);
+  let queryUrl = buildQueryUrl(searchedCountry, 2023);
   getNews();
 })
 
@@ -150,61 +149,3 @@ $("#feeling-lucky").on("click", function() {
   let queryUrl = buildQueryUrl(getRandomCountry(), generateRandomYear());
   getNews();
 })
-
-// autocomplete function for search bar
-
-
-const autoComplete = $(function() {
-
-    countryList
-  $( "#form-input" ).autocomplete({
-    minLength: 3,
-    source: countryList
-  });
-  searchedCountry = $('#form-input')[0]
-  console.log(searchedCountry)
-});
-
-$('#modal-text').focus(function() {
-  countryList
-$( "#modal-text" ).autocomplete({
-  
-  minLength: 3,
-  source: countryList
-});
-});
-
-$('#form-submit').on('click', function(e){
-  e.preventDefault();
-  searchedCountry = $('#form-input').val();
-  console.log(searchedCountry)
-})
-
-$('#modal-submit').on('click', function(e){
-  e.preventDefault();
-  homeCountry = $('#modal-text').val();
-  console.log(homeCountry)
-})
-
-
-
-
-
-// (function BindControls() {
-//   console.log('clicked')
-//   countryList
-
-//   $('#modal-text').autocomplete({
-//     source: function(req, response) {
-//       var results = $.ui.autocomplete.filter(countryList  , req.term);
-  
-//       response(results.slice(0, 5));//for getting 5 results
-//     },  
-    
-//       minLength: 0,
-//       scroll: true
-//   }).focus(function() {
-//     $(this).autocomplete("search", $(this).val());
-    
-//   });
-// })
