@@ -74,9 +74,9 @@ function getNews() {
           // let leadPara = $("<p>").text(docArray[i].lead_paragraph);
 
           // create news card
-          let newsCardDiv = $("<div>").addClass("card col-12");
+          let newsCardDiv = $("<div>").addClass("card col-11");
           let newsCardBody = $("<div>").addClass("card-body");
-          newsCardBody.append(headLineWLink, pubDate, wordCount, byline, snippet);
+          newsCardBody.append(headLineWLink, snippet, pubDate, wordCount);
           newsCardDiv.append(imageEl, newsCardBody);
 
           // newsCardDiv.append(imageEl, headLineWLink, pubDate, wordCount, byline, webUrl, snippet);
