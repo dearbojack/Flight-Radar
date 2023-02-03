@@ -49,7 +49,8 @@ function getNews() {
             let imageUrl = 'https://www.nytimes.com/' + image.url;
             imageEl = $("<img>").attr("src", imageUrl);
           } else {
-            let imageUrl = "https://via.placeholder.com/300";
+            // let imageUrl = "https://via.placeholder.com/300";
+            let imageUrl = "./assets/images/nonews.png";
             imageEl = $("<img>").attr("src", imageUrl);
           }
 
