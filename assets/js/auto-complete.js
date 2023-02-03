@@ -1,9 +1,6 @@
 let searchedCountry = '';
 let homeCountry = '';
 
-$('#modal-button').on('click', function(e) {
-    e.preventDefault()
-})
 
 $('#form-submit').on('click', function(e){
     e.preventDefault();
@@ -22,17 +19,17 @@ $( "#form-input" ).autocomplete({
     }
 });
 
-$('#modal-text').focus(function(e) {
-    e.preventDefault();
-    countryList
+$('#modal-button').on('click', function(e) {
+    homeCountry = $('#modal-text').val();
+    localStorage.setItem('home', homeCountry);
+})
+
 $( "#modal-text" ).autocomplete({
+    minLength: 3,
+    source: countryList,
     select: function(event, ui) { 
-    console.log(ui.item.value);
     homeCountry = ui.item.value;
     console.log(homeCountry);
-    localStorage.set
+    
 },
-    minLength: 3,
-    source: countryList
-});
 });
