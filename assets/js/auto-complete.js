@@ -10,14 +10,15 @@ $('#form-submit').on('click', function(e){
     getNews();
 })
 
-$( "#form-input" ).autocomplete({
+$("#form-input").autocomplete({
     minLength: 3,
     source: countryList,
-    select: function(event, ui) { 
+    select: function (event, ui) {
+        
         countrySelect = ui.item.value;
         console.log(countrySelect);
     }
-});
+})
 
 $('#modal-button').on('click', function(e) {
     homeCountry = $('#modal-text').val();
@@ -27,7 +28,7 @@ $('#modal-button').on('click', function(e) {
 $( "#modal-text" ).autocomplete({
     minLength: 3,
     source: countryList,
-    select: function(event, ui) { 
+    select: function (event, ui) {
     homeCountry = ui.item.value;
     console.log(homeCountry);
     
