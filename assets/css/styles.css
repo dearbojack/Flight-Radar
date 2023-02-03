@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Newspaper-font';
-    src: url(../font/Berkahi_Blackletter.ttf);
+    src: url(/assets/font/Berkahi\ Blackletter.ttf);
 }
 
 body {
@@ -62,8 +62,8 @@ body {
 /* Jumbotron */
 .jumbotron {
 
-    background-color: white;
-    border-bottom: 2px solid black;
+    background-color: #e4e4e440;
+    /* border-bottom: 2px solid rgba(0, 0, 0, 0.557); */
     
 
 }
@@ -84,25 +84,42 @@ body {
     left: 16px;
 }
 
-.ui-autocomplete { z-index:2000; }
-
 
 /* BRAND HEADER (end) ---------------- */
 
 
+/* Sidebar ---------------- */
+#sidebar-container {
+    margin: 0;
+    padding: 0;
+}
+
+#sidebar {
+    padding: 0;
+}
 
 
-/* SEARCH AREA ---------------- */
+/* SEARCH AREA  */
 #search-div {
     border: none;
+    margin: 0 !important;
+    margin-left: 0 !important;    
+    padding: 0;
 }
-/* SEARCH AREA (end) ---------------- */
+
+
+
 
 /* COUNTRIES FACTS ---------------- */
 #country-div {
     border: none;
 }
-/* COUNTRIES FACTS (end) ---------------- */
+
+
+/* Sidebar (end) ---------------- */
+
+
+
 
 
 
@@ -114,16 +131,23 @@ body {
 /* NEWS CARDS ---------------- */
 #news-results {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0;
+    width: 100%;
 }
 
+
+
+
+
 .card {
-    max-width: 22rem;
-    margin-bottom: auto;
+    margin-bottom: 7%;
     padding: 0%;
     color: black;
     background-color: #e4e4e440;
     border: none;
+
+
     
 }
 
@@ -131,8 +155,13 @@ body {
     color: black;
 }
 
+.card-body {
+    padding-bottom: 1%;
+
+}
+
 .card img {
-    max-width: 350px;
+    max-width: auto;
     max-height: 220px;
     width: 100%;
 }
@@ -146,7 +175,7 @@ body {
     top: 2%;
     right: 2%;
     color: rgb(0, 0, 0);
-    size: auto;
+    /* size: auto; */
 }
 
 .info-tab p {
@@ -154,9 +183,11 @@ body {
     border-radius: 0.25rem;
     padding: 0.175rem 0.35rem;
     font-size: small;
+}
 
-
-
+.pub-date {
+    font-size: small;
+    color: #797676;
 }
 
 
@@ -180,12 +211,34 @@ body {
 #content-row {
     display: flex;
 
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
-#country-div {
-    margin-bottom: 10px;
+
+/* tablet */
+@media only screen and (max-width: 1300px) {
+    #news-results {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .card {
+        margin: 20px;
+    }
 }
+
+/* phone */
+@media only screen and (max-width: 500px) {
+    #news-results {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .card {
+        margin: 30px;
+    }
+}
+
+
+.ui-autocomplete { z-index:2000; }
 
 #nationFlag {
     width: 90%;
