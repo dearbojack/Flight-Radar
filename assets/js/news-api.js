@@ -4,22 +4,11 @@
 // * api
 const apiKey = "YfIUBElKGXDPyEkqeoTHKUNqWudUQyeC";
 
-// * keywords : country names from user selection
-var countrySelect = "america";
-
-// * date : current year
-
-let year = 2023;
-// get the date
-let beginDate = parseInt(year) + "0101";
-let endDate = parseInt(year) + "1231";
-
 function buildQueryUrl(country, year) {
   let bDate = generateDate(year).start_date;
   let eDate = generateDate(year).end_date;
   return queryUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${country}&begin_date=${bDate}&end_date=${eDate}&api-key=${apiKey}`;
 }
-
 
 function getNews() {
   // clear the content
@@ -30,8 +19,8 @@ function getNews() {
     url: queryUrl,
     method: "GET"
   }).then( function(r) {
-      console.log(queryUrl);
-      console.log(r);
+      // console.log(queryUrl);
+      // console.log(r);
       // get the array of all news returned
       let docArray = r.response.docs;
       
@@ -50,8 +39,7 @@ function getNews() {
             let imageUrl = 'https://www.nytimes.com/' + image.url;
             imageEl = $("<img>").attr("src", imageUrl);
           } else {
-            // let imageUrl = "https://via.placeholder.com/300";
-            let imageUrl = "./assets/images/nonews.png";
+            let imageUrl = "https://via.placeholder.com/300";
             imageEl = $("<img>").attr("src", imageUrl);
           }
 
@@ -97,9 +85,6 @@ function getNews() {
   getCard(searchedCountry);
 }
 
-// build query url
-var queryUrl = buildQueryUrl(2023, 'china');
-
 // func to calc reading time based on word count
 function calculateReadingTime(wordCount) {
   const averageReadingSpeed = 200; // words per minute
@@ -113,7 +98,7 @@ function calculateReadingTime(wordCount) {
 }
 
 function getRandomCountry() {
-    let countries = countryList
+    let countries = ["america", "france", "germany", "japan", "korea", "china", "india", "russia", "iran", "united kingdom", "italy", "ukraine"];
     const randomIndex = Math.floor(Math.random() * countries.length);
     const randomCountry = countries[randomIndex];
 
@@ -121,8 +106,15 @@ function getRandomCountry() {
 }
 
 function generateDate(year) {
-  const startDate = year + "0101";
-  const endDate = year + "1231";
+  let now = moment();
+  let start = moment([year, Math.floor(Math.random() * 12), Math.floor(Math.random() * 30)]);
+  let end = start.clone().add(6, 'months');
+  while (!end.isValid() || end.isAfter(now)) {
+    start = moment([year, Math.floor(Math.random() * 12), Math.floor(Math.random() * 30)]);
+    end = start.clone().add(6, 'months');
+  }
+  let startDate = moment(start.toDate()).format("YYYYMMDD");
+  let endDate = moment(end.toDate()).format("YYYYMMDD");
 
   return { 
     start_date: startDate,
@@ -132,16 +124,16 @@ function generateDate(year) {
 
 function generateRandomYear() {
   // generate a random year between 2000 - 2023 (more likely to have image)
-  return year = Math.floor(Math.random() * (2023 - 2010 + 1)) + 2010;
+  return year = Math.floor(Math.random() * (2022 - 2010 + 1)) + 2010;
 }
 
 $("#default").on("click", function() {
-  let queryUrl = buildQueryUrl("China", 2023);
+  let queryUrl = buildQueryUrl("China", 2022);
   getNews();
 })
 
 $("#random-country").on("click", function() {
-  let queryUrl = buildQueryUrl(getRandomCountry(), 2023);
+  let queryUrl = buildQueryUrl(getRandomCountry(), 2022);
   getNews();
 })
 
