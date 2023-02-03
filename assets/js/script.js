@@ -1,5 +1,7 @@
 // api to fetch news from NY Times
 
+let searchedCountry = '';
+
 // variables: keywords, begin_date, end_date
 // * api
 const apiKey = "YfIUBElKGXDPyEkqeoTHKUNqWudUQyeC";
@@ -19,6 +21,7 @@ function buildQueryUrl(country, year) {
   let eDate = generateDate(year).end_date;
   return queryUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${country}&begin_date=${bDate}&end_date=${eDate}&api-key=${apiKey}`;
 }
+
 
 function getNews() {
   // clear the content
@@ -97,7 +100,7 @@ function getNews() {
 }
 
 // build query url
-var queryUrl = buildQueryUrl(2023, "China");
+var queryUrl = buildQueryUrl(2023, 'china');
 
 // func to calc reading time based on word count
 function calculateReadingTime(wordCount) {
@@ -112,7 +115,7 @@ function calculateReadingTime(wordCount) {
 }
 
 function getRandomCountry() {
-    let countries = ["america", "france", "germany", "japan", "korea", "china", "india", "russia", "iran", "united kingdom", "italy", "ukraine"];
+    let countries = countryList
     const randomIndex = Math.floor(Math.random() * countries.length);
     const randomCountry = countries[randomIndex];
 
@@ -148,3 +151,61 @@ $("#feeling-lucky").on("click", function() {
   let queryUrl = buildQueryUrl(getRandomCountry(), generateRandomYear());
   getNews();
 })
+
+// autocomplete function for search bar
+
+
+const autoComplete = $(function() {
+
+    countryList
+  $( "#form-input" ).autocomplete({
+    minLength: 3,
+    source: countryList
+  });
+  searchedCountry = $('#form-input')[0]
+  console.log(searchedCountry)
+});
+
+$('#modal-text').focus(function() {
+  countryList
+$( "#modal-text" ).autocomplete({
+  
+  minLength: 3,
+  source: countryList
+});
+});
+
+$('#form-submit').on('click', function(e){
+  e.preventDefault();
+  searchedCountry = $('#form-input').val();
+  console.log(searchedCountry)
+})
+
+$('#modal-submit').on('click', function(e){
+  e.preventDefault();
+  homeCountry = $('#modal-text').val();
+  console.log(homeCountry)
+})
+
+
+
+
+
+// (function BindControls() {
+//   console.log('clicked')
+//   countryList
+
+//   $('#modal-text').autocomplete({
+//     source: function(req, response) {
+//       var results = $.ui.autocomplete.filter(countryList  , req.term);
+  
+//       response(results.slice(0, 5));//for getting 5 results
+//     },  
+    
+//       minLength: 0,
+//       scroll: true
+//   }).focus(function() {
+//     $(this).autocomplete("search", $(this).val());
+    
+//   });
+// })

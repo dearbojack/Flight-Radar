@@ -28,14 +28,14 @@ function renderTodayWeather(city) {
             console.log(response);
             var icon = response.weather[0].icon ;
             // var temp = response.main.temp;
-            var tempF = response.main.feels_like;
-            let desc = response.weather[0].description;
+            var tempF = $("<p>").text(response.main.feels_like + " °C");
+            let desc = $("<p>").text(response.weather[0].description);
 
             // url to the weather icon
             let iconUrl = "http://openweathermap.org/img/wn/" + icon +"@2x.png";
 
             // create elements
-            let cityTitle = city;
+            let cityTitle = $("<p>").text(city);
             let weatherDiv = $("<div>");
             let weatherIcon = $("<img>").attr("src", iconUrl);
             
@@ -55,5 +55,5 @@ function renderTodayWeather(city) {
 
 getCapital("China").then(capital => {
     renderTodayWeather(capital);
-    console.log(`The capital of China is ${capital}.`);
+    // console.log(`The capital of China is ${capital}.`);
 });
