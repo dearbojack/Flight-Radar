@@ -1,7 +1,10 @@
 
-var queryURL = "https://restcountries.com/v2/name/france"; 
+
   
-  $.ajax({
+  function getCard() {
+    var queryURL = `https://restcountries.com/v2/name/${searchedCountry}`
+    console.log(searchedCountry)
+    $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function (response) {
@@ -106,4 +109,4 @@ var queryURL = "https://restcountries.com/v2/name/france";
     country.append(cash);
     country.append(curSym);
   });
-
+  }
