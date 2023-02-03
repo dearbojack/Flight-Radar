@@ -53,7 +53,7 @@ function renderTodayWeather(city) {
     });
 }
 
-getCapital('germany').then(capital => {
+getCapital(searchCountry).then(capital => {
     renderTodayWeather(capital);
     // console.log(`The capital of China is ${capital}.`);
 });
