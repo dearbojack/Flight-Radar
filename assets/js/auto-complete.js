@@ -13,7 +13,8 @@ $('#form-submit').on('click', function(e){
 $( "#form-input" ).autocomplete({
     minLength: 3,
     source: countryList,
-    select: function(event, ui) { 
+    select: function(event, ui) {
+        
         countrySelect = ui.item.value;
         console.log(countrySelect);
     }

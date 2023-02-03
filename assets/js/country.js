@@ -29,6 +29,7 @@ function getCard() {
 
 
     var country = $("#country-div");
+  
 
     //append and style country name
     var header = $("<div>")
