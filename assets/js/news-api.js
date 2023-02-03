@@ -1,7 +1,5 @@
 // api to fetch news from NY Times
 
-let searchedCountry = '';
-
 // variables: keywords, begin_date, end_date
 // * api
 const apiKey = "YfIUBElKGXDPyEkqeoTHKUNqWudUQyeC";
