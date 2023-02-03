@@ -62,8 +62,8 @@ body {
 /* Jumbotron */
 .jumbotron {
 
-    background-color: white;
-    border-bottom: 2px solid black;
+    background-color: #e4e4e440;
+    /* border-bottom: 2px solid rgba(0, 0, 0, 0.557); */
     
 
 }
@@ -214,11 +214,23 @@ body {
     justify-content: space-evenly;
 }
 
-@media only screen and (max-width: 767px) {
+
+/* tablet */
+@media only screen and (max-width: 1300px) {
+    #news-results {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .card {
+        margin: 20px;
+    }
+}
+
+/* phone */
+@media only screen and (max-width: 500px) {
     #news-results {
         grid-template-columns: repeat(1, 1fr);
     }
-
 
     .card {
         margin: 30px;
