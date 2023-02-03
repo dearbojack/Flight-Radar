@@ -1,4 +1,8 @@
-
+  // $(document).ready(function () {
+  //   country = localStorage.getItem("homeCountry")
+  //   console.log(country)
+  //   getcard(country)
+  // })
 
 
 // api to fetch news from NY Times
@@ -88,6 +92,8 @@ function getNews() {
   getCard(searchedCountry);
 }
 
+
+
 // func to calc reading time based on word count
 function calculateReadingTime(wordCount) {
   const averageReadingSpeed = 200; // words per minute
@@ -152,3 +158,4 @@ $("#feeling-lucky").on("click", function() {
   getNews();
 })
 
+ 
