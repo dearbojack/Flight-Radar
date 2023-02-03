@@ -16,7 +16,7 @@ function renderTodayWeather(city) {
     // build the query url
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${weatherApiKey}`;
     // clear existing content in #today
-    $("#weather-widget").empty();
+    $("#weather").empty();
     // fetch new weather content
     $.ajax({
         url: url,
@@ -26,7 +26,7 @@ function renderTodayWeather(city) {
         if(response.cod === 200) {
             // get data from api call
 
-            console.log(response);
+            // console.log(response);
             var icon = response.weather[0].icon ;
             // var temp = response.main.temp;
             var tempF = $("<p>").text(response.main.feels_like + " °C");
@@ -45,7 +45,7 @@ function renderTodayWeather(city) {
             weatherDiv.append(cityTitle, weatherIcon, desc, tempF);
 
             // populate #today
-            $(".jumbotron").append(weatherDiv);
+            $("#weather").append(weatherDiv);
 
         } else {
             console.log("api error");
@@ -53,8 +53,9 @@ function renderTodayWeather(city) {
 
     });
 }
-// after getCapital return a value, get the weather
-getCapital("China").then(capital => {
+
+getCapital(searchCountry).then(capital => {
+
     renderTodayWeather(capital);
     // console.log(`The capital of China is ${capital}.`);
 });
