@@ -4,16 +4,6 @@
 // * api
 const apiKey = "YfIUBElKGXDPyEkqeoTHKUNqWudUQyeC";
 
-// * keywords : country names from user selection
-var countrySelect = "america";
-
-// * date : current year
-
-let year = 2023;
-// get the date
-let beginDate = parseInt(year) + "0101";
-let endDate = parseInt(year) + "1231";
-
 function buildQueryUrl(country, year) {
   let bDate = generateDate(year).start_date;
   let eDate = generateDate(year).end_date;
@@ -94,9 +84,6 @@ function getNews() {
   });
   
 }
-
-// build query url
-var queryUrl = buildQueryUrl(2023, "China");
 
 // func to calc reading time based on word count
 function calculateReadingTime(wordCount) {
