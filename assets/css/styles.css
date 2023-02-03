@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Newspaper-font';
-    src: url(/assets/font/Berkahi\ Blackletter.ttf);
+    src: url(../font/Berkahi_Blackletter.ttf);
 }
 
 body {
@@ -83,6 +83,8 @@ body {
     top: 15px;
     left: 16px;
 }
+
+.ui-autocomplete { z-index:2000; }
 
 
 /* BRAND HEADER (end) ---------------- */
