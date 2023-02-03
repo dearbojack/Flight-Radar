@@ -106,8 +106,15 @@ function getRandomCountry() {
 }
 
 function generateDate(year) {
-  const startDate = year + "0101";
-  const endDate = year + "1231";
+  let now = moment();
+  let start = moment([year, Math.floor(Math.random() * 12), Math.floor(Math.random() * 30)]);
+  let end = start.clone().add(6, 'months');
+  while (!end.isValid() || end.isAfter(now)) {
+    start = moment([year, Math.floor(Math.random() * 12), Math.floor(Math.random() * 30)]);
+    end = start.clone().add(6, 'months');
+  }
+  let startDate = moment(start.toDate()).format("YYYYMMDD");
+  let endDate = moment(end.toDate()).format("YYYYMMDD");
 
   return { 
     start_date: startDate,
@@ -117,16 +124,16 @@ function generateDate(year) {
 
 function generateRandomYear() {
   // generate a random year between 2000 - 2023 (more likely to have image)
-  return year = Math.floor(Math.random() * (2023 - 2010 + 1)) + 2010;
+  return year = Math.floor(Math.random() * (2022 - 2010 + 1)) + 2010;
 }
 
 $("#default").on("click", function() {
-  let queryUrl = buildQueryUrl("China", 2023);
+  let queryUrl = buildQueryUrl("China", 2022);
   getNews();
 })
 
 $("#random-country").on("click", function() {
-  let queryUrl = buildQueryUrl(getRandomCountry(), 2023);
+  let queryUrl = buildQueryUrl(getRandomCountry(), 2022);
   getNews();
 })
 
