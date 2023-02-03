@@ -7,6 +7,7 @@ $('#form-submit').on('click', function(e){
     console.log(searchedCountry)
     buildQueryUrl(searchedCountry, 2022);
     getNews();
+    showCountry();
 })
 
 $( "#form-input" ).autocomplete({
