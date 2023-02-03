@@ -1,3 +1,4 @@
+// because this func takes some time to return thus async
 async function getCapital(countryName) {
     try {
         const response = await fetch(`https://restcountries.com/v2/name/${countryName}`);
@@ -15,7 +16,7 @@ function renderTodayWeather(city) {
     // build the query url
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${weatherApiKey}`;
     // clear existing content in #today
-    $("#today").empty();
+    $("#weather-widget").empty();
     // fetch new weather content
     $.ajax({
         url: url,
@@ -32,7 +33,7 @@ function renderTodayWeather(city) {
             let desc = $("<p>").text(response.weather[0].description);
 
             // url to the weather icon
-            let iconUrl = "http://openweathermap.org/img/wn/" + icon +"@2x.png";
+            let iconUrl = "https://openweathermap.org/img/wn/" + icon +"@2x.png";
 
             // create elements
             let cityTitle = $("<p>").text(city);
@@ -53,7 +54,9 @@ function renderTodayWeather(city) {
     });
 }
 
+
 getCapital(searchCountry).then(capital => {
+
     renderTodayWeather(capital);
     // console.log(`The capital of China is ${capital}.`);
 });
