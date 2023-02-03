@@ -109,4 +109,9 @@
     country.append(cash);
     country.append(curSym);
   });
+
+  getCapital(searchedCountry).then(capital => {
+    renderTodayWeather(capital);
+    // console.log(`The capital of China is ${capital}.`);
+});
   }
