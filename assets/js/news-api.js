@@ -94,7 +94,7 @@ function getNews() {
       let footer = $("<footer>").text(credit);
       $("body").append(footer);
   });
-  
+  getCard(searchedCountry);
 }
 
 // build query url
@@ -149,61 +149,3 @@ $("#feeling-lucky").on("click", function() {
   let queryUrl = buildQueryUrl(getRandomCountry(), generateRandomYear());
   getNews();
 })
-
-// autocomplete function for search bar
-
-
-const autoComplete = $(function() {
-
-    countryList
-  $( "#form-input" ).autocomplete({
-    minLength: 3,
-    source: countryList
-  });
-  searchedCountry = $('#form-input')[0]
-  console.log(searchedCountry)
-});
-
-$('#modal-text').focus(function() {
-  countryList
-$( "#modal-text" ).autocomplete({
-  
-  minLength: 3,
-  source: countryList
-});
-});
-
-$('#form-submit').on('click', function(e){
-  e.preventDefault();
-  searchedCountry = $('#form-input').val();
-  console.log(searchedCountry)
-})
-
-$('#modal-submit').on('click', function(e){
-  e.preventDefault();
-  homeCountry = $('#modal-text').val();
-  console.log(homeCountry)
-})
-
-
-
-
-
-// (function BindControls() {
-//   console.log('clicked')
-//   countryList
-
-//   $('#modal-text').autocomplete({
-//     source: function(req, response) {
-//       var results = $.ui.autocomplete.filter(countryList  , req.term);
-  
-//       response(results.slice(0, 5));//for getting 5 results
-//     },  
-    
-//       minLength: 0,
-//       scroll: true
-//   }).focus(function() {
-//     $(this).autocomplete("search", $(this).val());
-    
-//   });
-// })
