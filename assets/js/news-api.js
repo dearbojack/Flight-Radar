@@ -19,8 +19,8 @@ function getNews() {
     url: queryUrl,
     method: "GET"
   }).then( function(r) {
-      console.log(queryUrl);
-      console.log(r);
+      // console.log(queryUrl);
+      // console.log(r);
       // get the array of all news returned
       let docArray = r.response.docs;
       
