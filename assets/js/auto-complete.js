@@ -24,9 +24,9 @@ $('#modal-text').focus(function(e) {
 $( "#modal-text" ).autocomplete({
     select: function(event, ui) { 
     console.log(ui.item.value);
-    homeCountry = ui.item.value;
+        homeCountry = (ui.item.value);
         console.log(homeCountry);
-        localStorage.setItem("homeCountry", JSON.stringify(homeCountry));
+
 },
     minLength: 3,
     source: countryList
