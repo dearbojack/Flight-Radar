@@ -1,8 +1,8 @@
-   $(document).ready(function () {
-     searchedCountry = localStorage.getItem("home")
-     buildQueryUrl(searchedCountry,2022)
-     getNews(searchedCountry)
-   })
+  $(document).ready(function () {
+    searchedCountry = localStorage.getItem("home")
+    buildQueryUrl(searchedCountry,2022)
+    getNews(searchedCountry)
+})
 
 
 // api to fetch news from NY Times
