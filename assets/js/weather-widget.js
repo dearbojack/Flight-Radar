@@ -32,7 +32,7 @@ function renderTodayWeather(city) {
             let desc = $("<p>").text(response.weather[0].description);
 
             // url to the weather icon
-            let iconUrl = "http://openweathermap.org/img/wn/" + icon +"@2x.png";
+            let iconUrl = "https://openweathermap.org/img/wn/" + icon +"@2x.png";
 
             // create elements
             let cityTitle = $("<p>").text(city);
