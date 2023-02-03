@@ -1,3 +1,6 @@
+
+
+
 // api to fetch news from NY Times
 
 // variables: keywords, begin_date, end_date
@@ -148,3 +151,4 @@ $("#feeling-lucky").on("click", function() {
   let queryUrl = buildQueryUrl(getRandomCountry(), generateRandomYear());
   getNews();
 })
+

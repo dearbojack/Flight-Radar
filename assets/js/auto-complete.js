@@ -7,7 +7,6 @@ $('#form-submit').on('click', function(e){
     console.log(searchedCountry)
     buildQueryUrl(searchedCountry, 2022);
     getNews();
-    showCountry();
 })
 
 $( "#form-input" ).autocomplete({
@@ -26,7 +25,8 @@ $( "#modal-text" ).autocomplete({
     select: function(event, ui) { 
     console.log(ui.item.value);
     homeCountry = ui.item.value;
-    console.log(homeCountry);
+        console.log(homeCountry);
+        localStorage.setItem("homeCountry", JSON.stringify(homeCountry));
 },
     minLength: 3,
     source: countryList
