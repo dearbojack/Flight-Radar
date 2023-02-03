@@ -104,22 +104,29 @@ function getRandomCountry() {
 
     return randomCountry;
 }
-
-function generateDate(year) {
+// generate random date range (six month of a given year)
+function generateDate(year) { 
+  // year should be less than THIS YEAR, or it would be infinite loop
   let now = moment();
-  let start = moment([year, Math.floor(Math.random() * 12), Math.floor(Math.random() * 30)]);
-  let end = start.clone().add(6, 'months');
-  while (!end.isValid() || end.isAfter(now)) {
-    start = moment([year, Math.floor(Math.random() * 12), Math.floor(Math.random() * 30)]);
-    end = start.clone().add(6, 'months');
-  }
-  let startDate = moment(start.toDate()).format("YYYYMMDD");
-  let endDate = moment(end.toDate()).format("YYYYMMDD");
+  let thisYear = parseInt(now.format("YYYY"));
 
-  return { 
-    start_date: startDate,
-    end_date: endDate
-  };
+  if ( !(year < thisYear) ) { return } else {
+    
+    let start = moment([year, Math.floor(Math.random() * 12), Math.floor(Math.random() * 30)]);
+    let end = start.clone().add(6, 'months');
+    while (!end.isValid() || end.isAfter(now)) {
+      start = moment([year, Math.floor(Math.random() * 12), Math.floor(Math.random() * 30)]);
+      end = start.clone().add(6, 'months');
+    }
+    let startDate = moment(start.toDate()).format("YYYYMMDD");
+    let endDate = moment(end.toDate()).format("YYYYMMDD");
+  
+    return { 
+      start_date: startDate,
+      end_date: endDate
+    };
+  }
+  
 }
 
 function generateRandomYear() {
