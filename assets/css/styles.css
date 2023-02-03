@@ -39,26 +39,17 @@ body {
 
 /* BRAND HEADER ---------------- */
 
-/* Home location */
-/* .btn-primary {
-    background-color: #e6eaed;
-    border-color: #e6eaed;
-    color: black;
-    font-weight: 500;
-    font-size: small;
-} */
 
 .top-right-btn {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 15px;
+    right: 15px;
 }
 
 .home-location-date {
     position: absolute;
-    top: 12px;
-    left: 12px;
-    font-size: 255%;
+    top: 15px;
+    left: 15px;
 }
 
 .home-location-date h6 {
@@ -141,7 +132,31 @@ body {
 .card img {
     max-width: 350px;
     max-height: 220px;
+    width: 100%;
 }
+
+.newImgSec {
+    position: relative;
+}
+
+.info-tab {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    color: rgb(0, 0, 0);
+    size: auto;
+}
+
+.info-tab p {
+    background-color: #e4e4e4;
+    border-radius: 0.25rem;
+    padding: 0.175rem 0.35rem;
+    font-size: small;
+
+
+
+}
+
 
 
 
