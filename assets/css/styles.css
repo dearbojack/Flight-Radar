@@ -8,16 +8,45 @@ body {
     flex-direction: column;
 }
 
-/* BRAND HEADER ---------------- */
 
-/* Home location */
-.btn-primary {
+/* GLOBAL STYLES ---------------- */
+.btn-primary, #default, #random-country, #feeling-lucky {
     background-color: #e6eaed;
     border-color: #e6eaed;
     color: black;
     font-weight: 500;
     font-size: small;
+
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid transparent;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    /* text-align: center; */
+    /* vertical-align: middle; */
+    /* font-family: inherit; */
+    padding: 0.375rem 0.75rem;
+
+
 }
+
+
+
+/* GLOBAL STYLE (end) ---------------- */
+
+
+
+
+/* BRAND HEADER ---------------- */
+
+/* Home location */
+/* .btn-primary {
+    background-color: #e6eaed;
+    border-color: #e6eaed;
+    color: black;
+    font-weight: 500;
+    font-size: small;
+} */
 
 .top-right-btn {
     position: absolute;
@@ -70,21 +99,65 @@ body {
 
 
 
+/* SEARCH AREA ---------------- */
+#search-div {
+    border: none;
+}
+/* SEARCH AREA (end) ---------------- */
+
+/* COUNTRIES FACTS ---------------- */
+#country-div {
+    border: none;
+}
+/* COUNTRIES FACTS (end) ---------------- */
 
 
 
 
 
+
+
+
+/* NEWS CARDS ---------------- */
 #news-results {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
+
+.card {
+    max-width: 22rem;
+    margin-bottom: auto;
+    padding: 0%;
+    color: black;
+    background-color: #e4e4e440;
+    border: none;
+    
+}
+
+.card-body a {
+    color: black;
+}
+
+.card img {
+    max-width: 350px;
+    max-height: 220px;
+}
+
+
+
+
+
+
+/* NEWS CARDS (end) ---------------- */
+
+
+
+
+
+
 
 #content {
     margin: 0;
-}
-.card {
-    max-width: 24rem;
 }
 
 #content-row {
@@ -93,6 +166,3 @@ body {
     justify-content: space-between;
 }
 
-@media screen {
-    
-}

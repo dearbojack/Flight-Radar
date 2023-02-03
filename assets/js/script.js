@@ -56,13 +56,13 @@ function getNews() {
           // get headline and link it
           let headLine = docArray[i].headline.main;
           let webUrl = docArray[i].web_url;
-          let headLineWLink = $("<h3>").html(`<a href="${webUrl}">${headLine}</a>`);
+          let headLineWLink = $("<h5>").html(`<a href="${webUrl}">${headLine}</a>`);
           
           // get author
           let byline = $("<p>").text(docArray[i].byline.original);
 
           // get word count and calc reading time
-          let wordCount = $("<p>").text("Estimated reading time: " + calculateReadingTime(docArray[i].word_count));
+          let wordCount = $("<p>").text("Est read: " + calculateReadingTime(docArray[i].word_count));
 
           // get pub date & format it
           let date = moment(docArray[i].pub_date);
@@ -75,7 +75,7 @@ function getNews() {
           // create news card
           let newsCardDiv = $("<div>").addClass("card col-12");
           let newsCardBody = $("<div>").addClass("card-body");
-          newsCardBody.append(headLineWLink, pubDate, wordCount, byline, snippet);
+          newsCardBody.append(headLineWLink, snippet,  pubDate, wordCount);
           newsCardDiv.append(imageEl, newsCardBody);
 
           // newsCardDiv.append(imageEl, headLineWLink, pubDate, wordCount, byline, webUrl, snippet);
