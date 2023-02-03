@@ -1,7 +1,7 @@
 
 
   
-  function getCard() {
+function getCard() {
     var queryURL = `https://restcountries.com/v2/name/${searchedCountry}`
     console.log(searchedCountry)
     $.ajax({
@@ -10,7 +10,7 @@
   }).then(function (response) {
     console.log(response);
 
-    //print regional
+    // initialise variables to store response
     var name = response[0].name;
     var region = response[0].region;
     var subRegion = response[0].subregion;
