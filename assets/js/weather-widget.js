@@ -54,7 +54,6 @@ function renderTodayWeather(city) {
     });
 }
 
-
 getCapital(searchCountry).then(capital => {
 
     renderTodayWeather(capital);

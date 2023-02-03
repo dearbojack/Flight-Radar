@@ -112,6 +112,5 @@
 
   getCapital(searchedCountry).then(capital => {
     renderTodayWeather(capital);
-    // console.log(`The capital of China is ${capital}.`);
 });
   }

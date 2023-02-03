@@ -1,6 +1,10 @@
 let searchedCountry = '';
 let homeCountry = '';
 
+$('#modal-button').on('click', function(e) {
+    e.preventDefault()
+})
+
 $('#form-submit').on('click', function(e){
     e.preventDefault();
     searchedCountry = $('#form-input').val();
@@ -26,6 +30,7 @@ $( "#modal-text" ).autocomplete({
     console.log(ui.item.value);
     homeCountry = ui.item.value;
     console.log(homeCountry);
+    localStorage.set
 },
     minLength: 3,
     source: countryList
