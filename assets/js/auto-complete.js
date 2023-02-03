@@ -5,7 +5,7 @@ $('#form-submit').on('click', function(e){
     e.preventDefault();
     searchedCountry = $('#form-input').val();
     console.log(searchedCountry)
-    buildQueryUrl(searchedCountry, 2023);
+    buildQueryUrl(searchedCountry, 2022);
     getNews();
 })
 
