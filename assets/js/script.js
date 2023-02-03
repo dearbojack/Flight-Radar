@@ -66,14 +66,16 @@ function getNews() {
 
           // get pub date & format it
           let date = moment(docArray[i].pub_date);
-          let formattedDate = date.format("YYYY-MM-DD");
-          let pubDate = $("<p>").text(formattedDate);
+          // let formattedDate = date.format("YYYY-MM-DD");
+          let formattedDate = date.format("DD-MMM-YY"); // changed by SHAH
+
+          let pubDate = $("<p>").text(formattedDate).addClass("pub-date"); // class added by SHAH
 
           // get snippet
           let snippet = $("<p>").text(docArray[i].snippet);
 
           // create news card
-          let newsCardDiv = $("<div>").addClass("card col-12");
+          let newsCardDiv = $("<div>").addClass("card col-11");
           let newsCardBody = $("<div>").addClass("card-body");
           newsCardBody.append(headLineWLink, snippet,  pubDate, wordCount);
 
