@@ -1,8 +1,8 @@
-  // $(document).ready(function () {
-  //   country = localStorage.getItem("homeCountry")
-  //   console.log(country)
-  //   getcard(country)
-  // })
+   $(document).ready(function () {
+     searchedCountry = localStorage.getItem("home")
+     buildQueryUrl(searchedCountry,2022)
+     getNews(searchedCountry)
+   })
 
 
 // api to fetch news from NY Times
@@ -12,6 +12,7 @@
 const apiKey = "YfIUBElKGXDPyEkqeoTHKUNqWudUQyeC";
 
 function buildQueryUrl(country, year) {
+  $("#country-div").empty()
   let bDate = generateDate(year).start_date;
   let eDate = generateDate(year).end_date;
   return queryUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${country}&begin_date=${bDate}&end_date=${eDate}&api-key=${apiKey}`;
