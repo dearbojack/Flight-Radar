@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Newspaper-font';
-    src: url(/assets/font/Berkahi\ Blackletter.ttf);
+    src: url(../font/Berkahi_Blackletter.ttf);
 }
 
 body {
@@ -83,6 +83,8 @@ body {
     top: 15px;
     left: 16px;
 }
+
+.ui-autocomplete { z-index:2000; }
 
 
 /* BRAND HEADER (end) ---------------- */
@@ -220,7 +222,11 @@ body {
     #news-results {
         grid-template-columns: repeat(2, 1fr);
     }
+#country-div {
+    margin-bottom: 10px;
+}
     
+
     .card {
         margin: 20px;
     }
@@ -235,4 +241,11 @@ body {
     .card {
         margin: 30px;
     }
+}
+#nationFlag {
+    width: 90%;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
 }
