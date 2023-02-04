@@ -2,7 +2,14 @@
     searchedCountry = localStorage.getItem("home")
     buildQueryUrl(searchedCountry,2022)
     getNews(searchedCountry)
+    var location = $("#location-country")
+    var dateTime = $("#location-date")
+    location.text(localStorage.getItem("home"));
+    dateTime.text(moment().format("dddd Do MMMM YYYY"))
+
 })
+
+
 
 
 // api to fetch news from NY Times

@@ -1,6 +1,5 @@
+   
 
-
-  
 function getCard() {
   
     var queryURL = `https://restcountries.com/v2/name/${searchedCountry}`
@@ -9,8 +8,7 @@ function getCard() {
     url: queryURL,
     method: "GET"
   }).then(function (response) {
-    console.log(response);
-
+    
     // initialise variables to store response
     var name = response[0].name;
     var region = response[0].region;
