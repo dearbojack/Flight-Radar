@@ -107,10 +107,15 @@ body {
     padding: 0;
 }
 
+#search-section {
+    background-color: #e4e4e440;
+    padding: 15px;
+}
 
 
 
-/* COUNTRIES FACTS ---------------- */
+
+/* COUNTRIES FACTS  */
 #country-div {
     border: none;
 }
