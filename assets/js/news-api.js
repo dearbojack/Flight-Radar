@@ -64,9 +64,8 @@ function getNews() {
 
           // get pub date & format it
           let date = moment(docArray[i].pub_date);
-          let formattedDate = date.format("MMM. D, YYYY");
-          let pubDate = $("<p>").text(formattedDate);
-
+          let formattedDate = date.format("D-MMM-YY"); 
+          let pubDate = $("<p>").text(formattedDate).addClass("pub-date"); // class added by SHAH
           // get snippet
           let snippet = $("<p>").text(docArray[i].snippet);
 
