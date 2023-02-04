@@ -54,7 +54,7 @@ function getNews() {
           // get headline and link it
           let headLine = docArray[i].headline.main;
           let webUrl = docArray[i].web_url;
-          let headLineWLink = $("<h3>").html(`<a href="${webUrl}">${headLine}</a>`);
+          let headLineWLink = $("<h5>").html(`<a href="${webUrl}">${headLine}</a>`);
           
           // get author
           let byline = $("<p>").text(docArray[i].byline.original);
