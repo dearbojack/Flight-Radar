@@ -122,11 +122,24 @@ body {
     padding: 15px;
 }
 
+#country-div h5 {
+    text-align: left;
+}
+
+.stat-header {
+    padding-top: 0% !important
+}
 
 
 #nationFlag {
     display: block;
     margin: 0 auto;
+
+    max-width: 70%;
+    height: auto;
+
+    margin-bottom: 5%;
+
 }
 
 
