@@ -54,7 +54,7 @@ function getNews() {
           // get headline and link it
           let headLine = docArray[i].headline.main;
           let webUrl = docArray[i].web_url;
-          let headLineWLink = $("<h3>").html(`<a href="${webUrl}">${headLine}</a>`);
+          let headLineWLink = $("<h5>").html(`<a href="${webUrl}">${headLine}</a>`);
           
           // get author
           let byline = $("<p>").text(docArray[i].byline.original);
@@ -64,9 +64,8 @@ function getNews() {
 
           // get pub date & format it
           let date = moment(docArray[i].pub_date);
-          let formattedDate = date.format("MMM. D, YYYY");
-          let pubDate = $("<p>").text(formattedDate);
-
+          let formattedDate = date.format("D-MMM-YY"); 
+          let pubDate = $("<p>").text(formattedDate).addClass("pub-date"); // class added by SHAH
           // get snippet
           let snippet = $("<p>").text(docArray[i].snippet);
 

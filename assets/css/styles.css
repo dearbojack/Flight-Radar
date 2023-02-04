@@ -10,7 +10,7 @@ body {
 
 
 /* GLOBAL STYLES ---------------- */
-.btn-primary, #default, #random-country, #feeling-lucky {
+.btn-primary, #default, #random-country, #feeling-lucky, #form-submit {
     background-color: #e6eaed;
     border-color: #e6eaed;
     color: black;
@@ -107,10 +107,15 @@ body {
     padding: 0;
 }
 
+#search-section {
+    background-color: #e4e4e440;
+    padding: 15px;
+}
 
 
 
-/* COUNTRIES FACTS ---------------- */
+
+/* COUNTRIES FACTS  */
 #country-div {
     border: none;
 }
