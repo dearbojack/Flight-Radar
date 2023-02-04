@@ -60,7 +60,7 @@ function getNews() {
           let byline = $("<p>").text(docArray[i].byline.original);
 
           // get word count and calc reading time
-          let wordCount = $("<p>").text("Estimated reading time: " + calculateReadingTime(docArray[i].word_count));
+          let wordCount = $("<p>").text(calculateReadingTime(docArray[i].word_count));
 
           // get pub date & format it
           let date = moment(docArray[i].pub_date);
@@ -74,10 +74,19 @@ function getNews() {
           // let leadPara = $("<p>").text(docArray[i].lead_paragraph);
 
           // create news card
-          let newsCardDiv = $("<div>").addClass("card col-12");
+          let newsCardDiv = $("<div>").addClass("card col-11");
           let newsCardBody = $("<div>").addClass("card-body");
-          newsCardBody.append(headLineWLink, pubDate, wordCount, byline, snippet);
-          newsCardDiv.append(imageEl, newsCardBody);
+          newsCardBody.append(headLineWLink, snippet, pubDate, wordCount);
+
+          // by shah
+          let newImgSec = $("<div>").addClass("newImgSec");
+          let imgTabs = $("<div>").addClass("info-tab");
+
+          imgTabs.append(wordCount);
+          newImgSec.append(imageEl, imgTabs)
+          // by shah
+
+          newsCardDiv.append(newImgSec, newsCardBody); // changed input by SHAH
 
           // newsCardDiv.append(imageEl, headLineWLink, pubDate, wordCount, byline, webUrl, snippet);
           $("#news-results").append(newsCardDiv);
@@ -101,9 +110,9 @@ function calculateReadingTime(wordCount) {
   const readingTime = Math.ceil(wordCount / averageReadingSpeed);
   // singlar or plural
   if(readingTime > 1) {
-    return `${readingTime} minutes`
+    return `${readingTime} min`
   } else {
-    return `${readingTime} minute`
+    return `${readingTime} min`
   }
 }
 
