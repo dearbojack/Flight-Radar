@@ -118,7 +118,18 @@ body {
 /* COUNTRIES FACTS  */
 #country-div {
     border: none;
+    background-color: #e4e4e440;
+    padding: 15px;
 }
+
+
+
+#nationFlag {
+    display: block;
+    margin: 0 auto;
+}
+
+
 
 
 /* Sidebar (end) ---------------- */
