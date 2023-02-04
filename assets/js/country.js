@@ -30,12 +30,16 @@ function getCard() {
 
 
     var country = $("#country-div");
+
+    // country div title added by shah
+    var divTitle = $("<h5>");
+    divTitle.text("Statistics");
   
 
     //append and style country name
     var header = $("<div>")
     header.text(name);
-    header.css({ "font-size": "40px", "font-weight": "500", "text-align": "center", "padding": "10px" })
+    header.css({ "font-size": "30px", "font-weight": "500", "text-align": "center", "padding": "10px" })
 
     //append and style flag
     var cFlag = $("<img>")
@@ -99,7 +103,7 @@ function getCard() {
     curSymValue.css("font-weight", "400").text(currencysym)
     curSym.append(curSymValue)
 
-
+    country.append(divTitle)
     country.append(header);
     country.append(cFlag);
     country.append(cap);
