@@ -46,25 +46,14 @@ body {
     right: 15px;
 }
 
-/* .home-location-date {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-}
-
-.home-location-date h6 {
-    font-size: small;
-} */
-
-
-
-
 /* Jumbotron */
 .jumbotron {
 
     background-color: #e4e4e440;
     margin: 0;
-    padding-bottom: 30px;
+    padding-bottom: 22px;
+    padding-top: 30px;
+
 
 }
 
@@ -99,20 +88,32 @@ body {
 
 /* Weather */
 #el1 {
-    margin-right: auto;
     padding-left: 2%;
 
 }
 
 #weather-widget p {
-    font-size: 12px;
+    font-size: 11px;
     line-height: 0.2;
 
 
 }
 
-#weather-widget img {
-    /* display: none; */
+#display-icon {
+    line-height: 4; 
+    }
+
+#display-icon img {
+    vertical-align: middle; 
+    position: absolute;
+    margin-top: -30px; 
+
+    
+}
+
+
+#el1-a {
+    margin-right: auto;
 
 }
 
@@ -125,7 +126,7 @@ body {
 }
 
 .home-location-date p {
-    font-size: 12px;
+    font-size: 11px;
     line-height: 0.2;
 
 }
@@ -134,13 +135,6 @@ body {
     font-weight: 600;
     color: #a1a1a1;
 }
-
-/* .location-country, .location-date {
-    color: #000000;
-
-} */
-
-
 
 
 /* BANNER (end) ---------------- */
