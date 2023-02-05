@@ -63,7 +63,8 @@ body {
 .jumbotron {
 
     background-color: #e4e4e440;
-    margin: 0;    
+    margin: 0;
+    padding-bottom: 30px;
 
 }
 
@@ -89,26 +90,43 @@ body {
 
 
 /* BANNER ---------------- */
-
-
 #banner {
     display: flex;
     background-color: #e4e4e440;
     margin-bottom: 3%;
+    padding-bottom: 0.5%;
 }
 
+/* Weather */
 #el1 {
     margin-right: auto;
+    padding-left: 2%;
+
 }
 
+#weather-widget p {
+    font-size: 12px;
+    line-height: 0.2;
+
+
+}
+
+#weather-widget img {
+    /* display: none; */
+
+}
+
+
+
+/* Home location */
 #el2 {
     margin-left: auto;
     padding-right: 2%;
 }
 
-.home-location-date h6 {
+.home-location-date p {
     font-size: 12px;
-    line-height: 0.9;
+    line-height: 0.2;
 
 }
 
@@ -117,10 +135,10 @@ body {
     color: #a1a1a1;
 }
 
-.location-country, .location-date {
+/* .location-country, .location-date {
     color: #000000;
 
-}
+} */
 
 
 
