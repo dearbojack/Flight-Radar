@@ -104,12 +104,22 @@ body {
 #el2 {
     margin-left: auto;
     padding-right: 2%;
-
-    
 }
 
 .home-location-date h6 {
     font-size: 12px;
+    line-height: 0.9;
+
+}
+
+.location-title {
+    font-weight: 600;
+    color: #a1a1a1;
+}
+
+.location-country, .location-date {
+    color: #000000;
+
 }
 
 
