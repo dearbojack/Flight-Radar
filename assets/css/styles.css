@@ -93,6 +93,27 @@ body {
     margin-bottom: 5%;
 }
 
+.home-location-date {
+    float: right;
+  }
+
+#banner {
+    display: flex;
+}
+
+#el1 {
+    margin-right: auto;
+}
+
+#el2 {
+    margin-left: auto;
+}
+
+
+  /* li {
+    min-width: 520px;
+  } */
+
 /* BANNER (end) ---------------- */
 
 
