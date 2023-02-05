@@ -42,7 +42,10 @@ function renderTodayWeather(city) {
             
             // put icon to heading
             weatherDiv.attr("id", "weather-widget");
-            weatherDiv.append(cityTitle, weatherIcon, desc, tempF);
+            weatherDiv.append(cityTitle, desc, tempF);
+
+            // add icon to separate div
+            $("#display-icon").append(weatherIcon);
 
             // populate #today
             $("#weather").append(weatherDiv);
