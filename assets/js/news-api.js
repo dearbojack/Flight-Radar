@@ -5,7 +5,7 @@
     var location = $("#location-country")
     var dateTime = $("#location-date")
     location.text(localStorage.getItem("home"));
-    dateTime.text(moment().format("dddd Do MMMM YYYY"))
+    dateTime.text(moment().format("ddd, Do MMM YY"))
 
 })
 

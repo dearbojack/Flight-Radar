@@ -89,16 +89,12 @@ body {
 
 
 /* BANNER ---------------- */
-.navbar {
-    margin-bottom: 5%;
-}
 
-.home-location-date {
-    float: right;
-  }
 
 #banner {
     display: flex;
+    background-color: #e4e4e440;
+    margin-bottom: 3%;
 }
 
 #el1 {
@@ -107,12 +103,17 @@ body {
 
 #el2 {
     margin-left: auto;
+    padding-right: 2%;
+
+    
+}
+
+.home-location-date h6 {
+    font-size: 12px;
 }
 
 
-  /* li {
-    min-width: 520px;
-  } */
+
 
 /* BANNER (end) ---------------- */
 
