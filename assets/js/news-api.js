@@ -102,10 +102,10 @@ function getNews() {
       }
 
       // add copyright footer // this can be hardcoded
-      $("footer").empty();
-      let credit = r.copyright;
-      let footer = $("<footer>").text(credit);
-      $("body").append(footer);
+      // $("footer").empty();
+      // let credit = r.copyright;
+      // let footer = $("<footer>").text(credit);
+      // $("body").append(footer);
   });
   getCard(searchedCountry);
 }

@@ -1,3 +1,18 @@
+/* not sure if these are necessary - remove in 1/2 days if no comment has no affect */
+
+/* #nationFlag {
+    width: 90%;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+} */
+
+/* #content {
+    margin: 0;
+} */
+
+
 @font-face {
     font-family: 'Newspaper-font';
     src: url(../font/Berkahi_Blackletter.ttf);
@@ -22,39 +37,44 @@ body {
     border: 1px solid transparent;
     line-height: 1.5;
     border-radius: 0.25rem;
-    /* text-align: center; */
-    /* vertical-align: middle; */
-    /* font-family: inherit; */
     padding: 0.375rem 0.75rem;
-
-
 }
 
+.btn-primary:hover, #default:hover, #random-country:hover, #feeling-lucky:hover, #form-submit:hover, #modal-button:hover {
+    background-color: #dfe1f3 !important;
+    color: black !important;
+    border: none !important;
+}
 
+.btn-primary:focus, #default:focus, #random-country:focus, #feeling-lucky:focus, #form-submit:focus, #modal-button:focus {
+    outline: 0 !important;
+    box-shadow: none !important;
+}
 
+/* Main container */
+#content-row {
+    display: flex;
+    justify-content: space-evenly;
+}
 /* GLOBAL STYLE (end) ---------------- */
 
 
-
-
-/* BRAND HEADER ---------------- */
-
-
+/* HEADER ---------------- */
+/* Home location */
 .top-right-btn {
     position: absolute;
     top: 15px;
     right: 15px;
 }
 
+.ui-autocomplete { z-index:2000; }
+
 /* Jumbotron */
 .jumbotron {
-
     background-color: #e4e4e440;
     margin: 0;
     padding-bottom: 22px;
     padding-top: 30px;
-
-
 }
 
 #title {
@@ -72,10 +92,7 @@ body {
     top: 15px;
     left: 16px;
 }
-
-
-/* BRAND HEADER (end) ---------------- */
-
+/* HEADER (end) ---------------- */
 
 
 /* BANNER ---------------- */
@@ -86,22 +103,19 @@ body {
     padding-bottom: 0.5%;
 }
 
-/* Weather */
+/* Weather info */
 #el1 {
     padding-left: 2%;
-
 }
 
 #weather-widget p {
     font-size: 11px;
     line-height: 0.2;
-
-
 }
 
 #display-icon {
     line-height: 4; 
-    }
+}
 
 #display-icon img {
     vertical-align: middle; 
@@ -110,15 +124,11 @@ body {
     filter: invert(1);
 }
 
-
 #el1-a {
     margin-right: auto;
-
 }
 
-
-
-/* Home location */
+/* Home location info */
 #el2 {
     margin-left: auto;
     padding-right: 2%;
@@ -127,20 +137,16 @@ body {
 .home-location-date p {
     font-size: 11px;
     line-height: 0.2;
-
 }
 
 .location-title {
     font-weight: 600;
     color: #a1a1a1;
 }
-
-
 /* BANNER (end) ---------------- */
 
 
-
-/* Sidebar ---------------- */
+/* ASIDE ---------------- */
 #sidebar-container {
     margin: 0;
     padding: 0;
@@ -150,8 +156,7 @@ body {
     padding: 0;
 }
 
-
-/* SEARCH AREA  */
+/* Search */
 #search-div {
     border: none;
     margin: 0 !important;
@@ -164,10 +169,7 @@ body {
     padding: 15px;
 }
 
-
-
-
-/* COUNTRIES FACTS  */
+/* Statistics */
 #country-div:empty {
     display: none;
 }
@@ -186,31 +188,14 @@ body {
     padding-top: 0% !important
 }
 
-
 #nationFlag {
     display: block;
     margin: 0 auto;
-
     max-width: 70%;
     height: auto;
-
     margin-bottom: 5%;
-
 }
-
-
-
-
-/* Sidebar (end) ---------------- */
-
-
-
-
-
-
-
-
-
+/* ASIDE (end) ---------------- */
 
 
 /* NEWS CARDS ---------------- */
@@ -221,19 +206,12 @@ body {
     width: 100%;
 }
 
-
-
-
-
 .card {
     margin-bottom: 7%;
     padding: 0%;
     color: black;
     background-color: #e4e4e440;
     border: none;
-
-
-    
 }
 
 .card-body a {
@@ -248,7 +226,9 @@ body {
 .card img {
     max-width: auto;
     max-height: 220px;
+    min-height: 220px;
     width: 100%;
+    object-fit: cover;
 }
 
 .newImgSec {
@@ -260,7 +240,6 @@ body {
     top: 2%;
     right: 2%;
     color: rgb(0, 0, 0);
-    /* size: auto; */
 }
 
 .info-tab p {
@@ -274,33 +253,22 @@ body {
     font-size: small;
     color: #797676;
 }
-
-
-
-
-
-
-
 /* NEWS CARDS (end) ---------------- */
 
 
-
-
-
-
-
-#content {
-    margin: 0;
+/* FOOTER ---------------- */
+footer {
+    background-color: #e4e4e440;
+    padding-bottom: 2%;
+    padding-top: 2.5em;
+    padding-left: 2em;
+    font-size: small;
 }
-
-#content-row {
-    display: flex;
-
-    justify-content: space-evenly;
-}
+/* FOOTER (end) ---------------- */
 
 
-/* tablet */
+/* MEDIA QUERY ---------------- */
+/* Tablet */
 @media only screen and (max-width: 1300px) {
     #news-results {
         grid-template-columns: repeat(2, 1fr);
@@ -311,7 +279,7 @@ body {
     }
 }
 
-/* phone */
+/* Phone */
 @media only screen and (max-width: 500px) {
     #news-results {
         grid-template-columns: repeat(1, 1fr);
@@ -323,12 +291,5 @@ body {
 }
 
 
-.ui-autocomplete { z-index:2000; }
+/* MEDIA QUERY (end) ---------------- */
 
-#nationFlag {
-    width: 90%;
-    border: 1px solid black;
-    margin-left: auto;
-    margin-right: auto;
-    align-self: center;
-}
