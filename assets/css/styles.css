@@ -36,36 +36,24 @@ body {
     outline: 0 !important;
     box-shadow: none !important;
 }
-
-
-
-
 /* GLOBAL STYLE (end) ---------------- */
-
-
 
 
 /* BRAND HEADER ---------------- */
 
-/* HOME LOCATION */
-
+/* Home location */
 .top-right-btn {
     position: absolute;
     top: 15px;
     right: 15px;
 }
 
-
-
 /* Jumbotron */
 .jumbotron {
-
     background-color: #e4e4e440;
     margin: 0;
     padding-bottom: 22px;
     padding-top: 30px;
-
-
 }
 
 #title {
@@ -83,10 +71,7 @@ body {
     top: 15px;
     left: 16px;
 }
-
-
 /* BRAND HEADER (end) ---------------- */
-
 
 
 /* BANNER ---------------- */
@@ -97,10 +82,9 @@ body {
     padding-bottom: 0.5%;
 }
 
-/* Weather */
+/* Weather info */
 #el1 {
     padding-left: 2%;
-
 }
 
 #weather-widget p {
@@ -110,7 +94,7 @@ body {
 
 #display-icon {
     line-height: 4; 
-    }
+}
 
 #display-icon img {
     vertical-align: middle; 
@@ -119,17 +103,12 @@ body {
     filter: invert(1);
 }
 
-
 #el1-a {
     margin-right: auto;
-
 }
 
 
-
-
-
-/* Home location */
+/* Home location info */
 #el2 {
     margin-left: auto;
     padding-right: 2%;
@@ -138,20 +117,16 @@ body {
 .home-location-date p {
     font-size: 11px;
     line-height: 0.2;
-
 }
 
 .location-title {
     font-weight: 600;
     color: #a1a1a1;
 }
-
-
 /* BANNER (end) ---------------- */
 
 
-
-/* Sidebar ---------------- */
+/* ASIDE ---------------- */
 #sidebar-container {
     margin: 0;
     padding: 0;
@@ -161,8 +136,7 @@ body {
     padding: 0;
 }
 
-
-/* SEARCH AREA  */
+/* Search */
 #search-div {
     border: none;
     margin: 0 !important;
@@ -175,10 +149,7 @@ body {
     padding: 15px;
 }
 
-
-
-
-/* COUNTRIES FACTS  */
+/* Statistics */
 #country-div:empty {
     display: none;
 }
@@ -197,31 +168,14 @@ body {
     padding-top: 0% !important
 }
 
-
 #nationFlag {
     display: block;
     margin: 0 auto;
-
     max-width: 70%;
     height: auto;
-
     margin-bottom: 5%;
-
 }
-
-
-
-
-/* Sidebar (end) ---------------- */
-
-
-
-
-
-
-
-
-
+/* ASIDE (end) ---------------- */
 
 
 /* NEWS CARDS ---------------- */
@@ -232,19 +186,12 @@ body {
     width: 100%;
 }
 
-
-
-
-
 .card {
     margin-bottom: 7%;
     padding: 0%;
     color: black;
     background-color: #e4e4e440;
     border: none;
-
-
-    
 }
 
 .card-body a {
@@ -259,7 +206,11 @@ body {
 .card img {
     max-width: auto;
     max-height: 220px;
+    min-height: 220px;
     width: 100%;
+    object-fit: cover;
+
+
 }
 
 .newImgSec {
