@@ -28,7 +28,21 @@ body {
     padding: 0.375rem 0.75rem;
 
 
+
 }
+
+button:hover {
+    background-color: #dfe1f3 !important;
+    color: black !important;
+    border: none !important;
+
+}
+
+button:focus {
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
 
 
 
