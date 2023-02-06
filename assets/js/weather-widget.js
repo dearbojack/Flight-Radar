@@ -32,6 +32,12 @@ function renderTodayWeather(city) {
             var tempF = $("<p>").text(response.main.feels_like + " °C");
             let desc = $("<p>").text(response.weather[0].description);
 
+            // making 1st char uppercase in desc
+            let descAsStr = desc.text();
+            let descFirstLetter = descAsStr.charAt(0).toUpperCase();
+            let restOfDesc = descAsStr.slice(1);
+            let descInFull = $("<p>").text(descFirstLetter + restOfDesc);
+
             // url to the weather icon
             let iconUrl = "https://openweathermap.org/img/wn/" + icon +"@2x.png";
 
@@ -42,7 +48,7 @@ function renderTodayWeather(city) {
             
             // put icon to heading
             weatherDiv.attr("id", "weather-widget");
-            weatherDiv.append(cityTitle, desc, tempF);
+            weatherDiv.append(cityTitle, descInFull, tempF);
 
             // add icon to separate div
             $("#display-icon").append(weatherIcon);

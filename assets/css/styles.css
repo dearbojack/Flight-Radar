@@ -109,9 +109,13 @@ button:focus {
 #weather-widget p {
     font-size: 11px;
     line-height: 0.2;
-
-
 }
+
+#weather-widget #text {
+    font-size: 11px;
+    display: none;
+}
+
 
 #display-icon {
     line-height: 4; 
@@ -129,6 +133,8 @@ button:focus {
     margin-right: auto;
 
 }
+
+
 
 
 
