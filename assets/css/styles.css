@@ -109,7 +109,7 @@ body {
 
 /* Weather info */
 #el1 {
-    padding-left: 2%;
+    padding-left: 6%;
 }
 
 #weather-widget p {
@@ -135,7 +135,7 @@ body {
 /* Home location info */
 #el2 {
     margin-left: auto;
-    padding-right: 2%;
+    padding-right: 2.5%;
 }
 
 .home-location-date p {
@@ -272,7 +272,7 @@ footer {
 
 
 /* MEDIA QUERY ---------------- */
-/* Tablet */
+/* Tablet 1 */
 @media only screen and (max-width: 1300px) {
     #news-results {
         grid-template-columns: repeat(2, 1fr);
@@ -283,7 +283,8 @@ footer {
     }
 }
 
-@media only screen and (max-width: 1135px) {
+/* Tablet 1 with change to search buttons */
+@media only screen and (max-width: 1200px) and (min-width: 995px) {
     #news-results {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -292,8 +293,27 @@ footer {
         margin-top: 5%;
     }
     
+    /* .card {
+        margin: 20px;
+    } */
+
+    #el2 {
+        padding-right: 6%;
+    }
+}
+
+/* Tablet 2 */
+@media only screen and (max-width: 994px) and (min-width: 500px) {
+    /* #news-results {
+        grid-template-columns: repeat(2, 1fr);
+    } */
+    
     .card {
         margin: 20px;
+    }
+
+    #el2 {
+        padding-right: 6%;
     }
 }
 
@@ -311,7 +331,6 @@ footer {
         margin: 30px;
     }
 
-    text-align: cen;
 }
 
 
