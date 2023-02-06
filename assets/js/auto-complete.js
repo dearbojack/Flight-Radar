@@ -3,7 +3,6 @@ let homeCountry = '';
 
 
 var queryURL = `https://restcountries.com/v2/all`
-    console.log(searchedCountry)
     $.ajax({
     url: queryURL,
     method: "GET"
@@ -11,17 +10,13 @@ var queryURL = `https://restcountries.com/v2/all`
         console.log(response)
         for(let i = 0; i < response.length; i++) {
             countryList.push(response[i].name)
-            
-            
         }
-        console.log(countryList)
         return countryList
 })
 
 $('#form-submit').on('click', function(e){
     e.preventDefault();
     searchedCountry = $('#form-input').val();
-    console.log(searchedCountry)
     buildQueryUrl(searchedCountry, 2022);
     getNews();
 })
@@ -30,9 +25,7 @@ $("#form-input").autocomplete({
     minLength: 3,
     source: countryList,
     select: function (event, ui) {
-        
         countrySelect = ui.item.value;
-        console.log(countrySelect);
     }
 })
 
@@ -45,8 +38,6 @@ $( "#modal-text" ).autocomplete({
     minLength: 3,
     source: countryList,
     select: function (event, ui) {
-    homeCountry = ui.item.value;
-    console.log(homeCountry);
-    
-},
+        homeCountry = ui.item.value;
+    },
 });
