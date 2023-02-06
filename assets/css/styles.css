@@ -111,12 +111,6 @@ button:focus {
     line-height: 0.2;
 }
 
-#weather-widget #text {
-    font-size: 11px;
-    display: none;
-}
-
-
 #display-icon {
     line-height: 4; 
     }
@@ -303,6 +297,18 @@ button:focus {
 
 /* NEWS CARDS (end) ---------------- */
 
+
+/* FOOTER ---------------- */
+footer {
+    background-color: #e4e4e440;
+    padding-bottom: 2%;
+    padding-top: 2.5em;
+    padding-left: 2em;
+    font-size: small;
+}
+
+
+/* FOOTER (end) ---------------- */
 
 
 
