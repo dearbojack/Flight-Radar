@@ -279,15 +279,35 @@ footer {
     }
 }
 
+@media only screen and (max-width: 1135px) {
+    #news-results {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #home-country {
+        margin-top: 5%;
+    }
+    
+    .card {
+        margin: 20px;
+    }
+}
+
 /* Phone */
 @media only screen and (max-width: 500px) {
     #news-results {
         grid-template-columns: repeat(1, 1fr);
     }
 
+    #home-country {
+        margin-top: 0 !important;
+    }
+
     .card {
         margin: 30px;
     }
+
+    text-align: cen;
 }
 
 
