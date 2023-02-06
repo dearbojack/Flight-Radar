@@ -1,13 +1,21 @@
 let searchedCountry = '';
 let homeCountry = '';
 
- var queryURL = `https://restcountries.com/v2/all`
+
+var queryURL = `https://restcountries.com/v2/all`
     console.log(searchedCountry)
     $.ajax({
     url: queryURL,
     method: "GET"
     }).then(function (response) {
-        console.log(response);
+        console.log(response)
+        for(let i = 0; i < response.length; i++) {
+            countryList.push(response[i].name)
+            
+            
+        }
+        console.log(countryList)
+        return countryList
 })
 
 $('#form-submit').on('click', function(e){
