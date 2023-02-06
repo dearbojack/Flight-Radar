@@ -1,3 +1,18 @@
+/* not sure if these are necessary - remove in 1/2 days if no comment has no affect */
+
+/* #nationFlag {
+    width: 90%;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+} */
+
+/* #content {
+    margin: 0;
+} */
+
+
 @font-face {
     font-family: 'Newspaper-font';
     src: url(../font/Berkahi_Blackletter.ttf);
@@ -29,24 +44,30 @@ body {
     background-color: #dfe1f3 !important;
     color: black !important;
     border: none !important;
-
 }
 
 .btn-primary:focus, #default:focus, #random-country:focus, #feeling-lucky:focus, #form-submit:focus, #modal-button:focus {
     outline: 0 !important;
     box-shadow: none !important;
 }
+
+/* Main container */
+#content-row {
+    display: flex;
+    justify-content: space-evenly;
+}
 /* GLOBAL STYLE (end) ---------------- */
 
 
-/* BRAND HEADER ---------------- */
-
+/* HEADER ---------------- */
 /* Home location */
 .top-right-btn {
     position: absolute;
     top: 15px;
     right: 15px;
 }
+
+.ui-autocomplete { z-index:2000; }
 
 /* Jumbotron */
 .jumbotron {
@@ -71,7 +92,7 @@ body {
     top: 15px;
     left: 16px;
 }
-/* BRAND HEADER (end) ---------------- */
+/* HEADER (end) ---------------- */
 
 
 /* BANNER ---------------- */
@@ -106,7 +127,6 @@ body {
 #el1-a {
     margin-right: auto;
 }
-
 
 /* Home location info */
 #el2 {
@@ -209,8 +229,6 @@ body {
     min-height: 220px;
     width: 100%;
     object-fit: cover;
-
-
 }
 
 .newImgSec {
@@ -222,7 +240,6 @@ body {
     top: 2%;
     right: 2%;
     color: rgb(0, 0, 0);
-    /* size: auto; */
 }
 
 .info-tab p {
@@ -236,13 +253,6 @@ body {
     font-size: small;
     color: #797676;
 }
-
-
-
-
-
-
-
 /* NEWS CARDS (end) ---------------- */
 
 
@@ -254,27 +264,11 @@ footer {
     padding-left: 2em;
     font-size: small;
 }
-
-
 /* FOOTER (end) ---------------- */
 
 
-
-
-
-
-#content {
-    margin: 0;
-}
-
-#content-row {
-    display: flex;
-
-    justify-content: space-evenly;
-}
-
-
-/* tablet */
+/* MEDIA QUERY ---------------- */
+/* Tablet */
 @media only screen and (max-width: 1300px) {
     #news-results {
         grid-template-columns: repeat(2, 1fr);
@@ -285,7 +279,7 @@ footer {
     }
 }
 
-/* phone */
+/* Phone */
 @media only screen and (max-width: 500px) {
     #news-results {
         grid-template-columns: repeat(1, 1fr);
@@ -297,12 +291,5 @@ footer {
 }
 
 
-.ui-autocomplete { z-index:2000; }
+/* MEDIA QUERY (end) ---------------- */
 
-#nationFlag {
-    width: 90%;
-    border: 1px solid black;
-    margin-left: auto;
-    margin-right: auto;
-    align-self: center;
-}
