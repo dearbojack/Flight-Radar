@@ -123,11 +123,11 @@ function calculateReadingTime(wordCount) {
 }
 
 function getRandomCountry() {
-    let countries = ["america", "france", "germany", "japan", "korea", "china", "india", "russia", "iran", "united kingdom", "italy", "ukraine"];
+    let countries = countryList;
     const randomIndex = Math.floor(Math.random() * countries.length);
     const randomCountry = countries[randomIndex];
-
-    return randomCountry;
+    searchedCountry = randomCountry;
+    return searchedCountry;
 }
 // generate random date range (six month of a given year)
 function generateDate(year) { 
