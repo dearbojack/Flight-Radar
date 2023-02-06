@@ -1,7 +1,7 @@
 let searchedCountry = '';
 let homeCountry = '';
 
- var queryURL = `https://restcountries.com/v2/all`
+ var queryURL = `https://restcountries.com/v2/all?fields=name`
     console.log(searchedCountry)
     $.ajax({
     url: queryURL,
