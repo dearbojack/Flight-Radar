@@ -1,4 +1,3 @@
-
 function getCard() {
   
     var queryURL = `https://restcountries.com/v2/name/${searchedCountry}?fullText=true`
