@@ -41,3 +41,9 @@ $( "#modal-text" ).autocomplete({
         homeCountry = ui.item.value;
     },
 });
+
+$('#random-country').on('click', function(e) {
+    e.preventDefault();
+    console.log('hey hey')
+})
+
