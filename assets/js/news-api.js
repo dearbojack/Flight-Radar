@@ -1,4 +1,6 @@
-  $(document).ready(function () {
+  $(document).ready(readyFunc)
+
+function readyFunc() {
     searchedCountry = localStorage.getItem("home")
     buildQueryUrl(searchedCountry,2022)
     getNews(searchedCountry)
@@ -7,7 +9,7 @@
     location.text(localStorage.getItem("home"));
     dateTime.text(moment().format("ddd, Do MMM YY"))
 
-})
+}
 
 
 
