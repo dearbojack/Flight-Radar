@@ -47,3 +47,7 @@ $('#random-country').on('click', function(e) {
     console.log('hey hey')
 })
 
+$('#home-country').on('click', function(e) {
+    e.preventDefault();
+    readyFunc();
+})

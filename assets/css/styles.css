@@ -10,7 +10,7 @@ body {
 
 
 /* GLOBAL STYLES ---------------- */
-.btn-primary, #default, #random-country, #feeling-lucky, #form-submit, #modal-button {
+.btn-primary, #default, #random-country, #home-country, #form-submit, #modal-button {
     background-color: #e6eaed;
     border-color: #e6eaed;
     color: black;
