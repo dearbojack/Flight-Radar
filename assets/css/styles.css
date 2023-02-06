@@ -73,8 +73,8 @@ body {
 .jumbotron {
     background-color: #e4e4e440;
     margin: 0;
-    padding-bottom: 22px;
     padding-top: 30px;
+    padding-bottom: 5px;
 }
 
 #title {
@@ -91,6 +91,10 @@ body {
     position: absolute;
     top: 15px;
     left: 16px;
+}
+
+#title-sub1 {
+    padding-top: 2%;
 }
 /* HEADER (end) ---------------- */
 
