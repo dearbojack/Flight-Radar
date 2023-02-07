@@ -322,7 +322,6 @@ footer {
         align-items: center;
         flex-direction: column;
       }
-      
 
     #country-parent {
         padding-top: 2%;
@@ -350,13 +349,11 @@ footer {
     #search-section {
         padding-left: 7%;
         padding-right: 7%;
-
       }
 
       #nationFlag {
         max-width: 65%;
     } 
-
 
     #news-results .card {
         max-width: 300px;
@@ -365,13 +362,15 @@ footer {
     }
 
     .jumbotron {
-        padding-top: 40px;
+        padding-top: 50px;
     }
 
     footer {
         margin-top: 10%;
     }
 
+    .top-right-btn  {
+        margin-top: 4% !important
+    }
 }
 /* MEDIA QUERY (end) ---------------- */
-
