@@ -57,7 +57,11 @@ function getNews() {
             let imageUrl = 'https://www.nytimes.com/' + image.url;
             imageEl = $("<img>").attr("src", imageUrl);
           } else {
-            let imageUrl = "https://via.placeholder.com/300";
+            // get random noimage.png when there is no image from api call
+            let imageArr = [1, 2, 3];
+            let randomIndex = imageArr[Math.floor(Math.random()*imageArr.length)];
+
+            let imageUrl = "assets/images/noimage" + randomIndex + ".png";
             imageEl = $("<img>").attr("src", imageUrl);
           }
 
