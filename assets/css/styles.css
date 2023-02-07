@@ -258,6 +258,7 @@ footer {
     padding-top: 2%;
     padding-left: 2em;
     font-size: small;
+    text-align: center;
 }
 /* FOOTER (end) ---------------- */
 
@@ -303,16 +304,25 @@ footer {
         padding-right: 6%;
     }
 
-    #country-div {
+    #country-div  {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
     }
+    
+
+    #country-stats, #country-header {
+        padding-top: 3%;
+        padding-bottom: 3%;
+    }
 
     #country-stats {
-        padding-top: 4%;
-        padding-bottom: 4%;
-    }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      
 
     #country-parent {
         padding-top: 2%;
