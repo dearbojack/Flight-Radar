@@ -1,20 +1,17 @@
-  $(document).ready(readyFunc)
+$(document).ready(readyFunc);
 
 function readyFunc() {
-    searchedCountry = localStorage.getItem("home")
-    buildQueryUrl(searchedCountry,2022)
-    getNews(searchedCountry)
-    var location = $("#location-country")
-    var dateTime = $("#location-date")
+    searchedCountry = localStorage.getItem("home");
+    buildQueryUrl(searchedCountry, 2022);
+    getNews(searchedCountry);
+    var location = $("#location-country");
+    var dateTime = $("#location-date");
     location.text(localStorage.getItem("home"));
-    dateTime.text(moment().format("ddd, Do MMM YY"))
+    dateTime.text(moment().format("ddd, Do MMM YY"));
     getCapital(searchedCountry).then(capital => {
       renderTodayWeather(capital);
     })
 }
-
-
-
 
 // api to fetch news from NY Times
 
@@ -32,6 +29,8 @@ function buildQueryUrl(country, year) {
 function getNews() {
   // clear the content
   $("#news-results").empty();
+  // limit results returned
+  const resultLimit = 9;
 
   // call api and fill in new content
   $.ajax({
@@ -43,22 +42,25 @@ function getNews() {
       // get the array of all news returned
       let docArray = r.response.docs;
       
-      for (let i = 0; i < docArray.length; i++) {
+      for (let i = 0; i < resultLimit; i++) {
         let media = r.response.docs[i].multimedia;
 
         if(media === []) {
-          // skip card creation if no image
+          // skip card creation if no media
           return;
         } else {
-          // create news card if there are image
-          // console.log(media[0].url);
-          let image = media.find(image => image.subtype === 'articleInline');
+          // get xlarge image 
+          let image = media.find(image => image.subtype === 'xlarge');
           // bugfix if no image type found
           if(image) {
             let imageUrl = 'https://www.nytimes.com/' + image.url;
             imageEl = $("<img>").attr("src", imageUrl);
           } else {
-            let imageUrl = "https://via.placeholder.com/300";
+            // get random noimage.png when there is no image from api call
+            let imageArr = [1, 2, 3];
+            let randomIndex = imageArr[Math.floor(Math.random()*imageArr.length)];
+
+            let imageUrl = "assets/images/noimage" + randomIndex + ".png";
             imageEl = $("<img>").attr("src", imageUrl);
           }
 
@@ -102,17 +104,9 @@ function getNews() {
           $("#news-results").append(newsCardDiv);
         }
       }
-
-      // add copyright footer // this can be hardcoded
-      // $("footer").empty();
-      // let credit = r.copyright;
-      // let footer = $("<footer>").text(credit);
-      // $("body").append(footer);
   });
   getCard(searchedCountry);
 }
-
-
 
 // func to calc reading time based on word count
 function calculateReadingTime(wordCount) {
@@ -121,8 +115,10 @@ function calculateReadingTime(wordCount) {
   // singlar or plural
   if(readingTime > 1) {
     return `${readingTime} min`
-  } else {
+  } else if (readingTime === 1){
     return `${readingTime} min`
+  } else {
+    return `<1 min`
   }
 }
 
@@ -140,16 +136,18 @@ function generateDate(year) {
   let thisYear = parseInt(now.format("YYYY"));
 
   if ( !(year < thisYear) ) { return } else {
-    
+    // generate random date, and end date 6 month later
     let start = moment([year, Math.floor(Math.random() * 12), Math.floor(Math.random() * 30)]);
     let end = start.clone().add(6, 'months');
+    // if end is in the future or invalid date, re-generate random year
     while (!end.isValid() || end.isAfter(now)) {
       start = moment([year, Math.floor(Math.random() * 12), Math.floor(Math.random() * 30)]);
       end = start.clone().add(6, 'months');
     }
+    // format date into format that can be used in api call
     let startDate = moment(start.toDate()).format("YYYYMMDD");
     let endDate = moment(end.toDate()).format("YYYYMMDD");
-  
+    // return and object of startDate & endDate
     return { 
       start_date: startDate,
       end_date: endDate
@@ -158,24 +156,12 @@ function generateDate(year) {
   
 }
 
+// generate a random year between 2000 - 2023 (more likely to have image)
 function generateRandomYear() {
-  // generate a random year between 2000 - 2023 (more likely to have image)
   return year = Math.floor(Math.random() * (2022 - 2010 + 1)) + 2010;
 }
-
-$("#default").on("click", function() {
-  let queryUrl = buildQueryUrl("China", 2022);
-  getNews();
-})
 
 $("#random-country").on("click", function() {
   let queryUrl = buildQueryUrl(getRandomCountry(), 2022);
   getNews();
 })
-
-$("#feeling-lucky").on("click", function() {
-  let queryUrl = buildQueryUrl(getRandomCountry(), generateRandomYear());
-  getNews();
-})
-
- 
