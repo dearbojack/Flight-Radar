@@ -47,12 +47,11 @@ function getNews() {
         let media = r.response.docs[i].multimedia;
 
         if(media === []) {
-          // skip card creation if no image
+          // skip card creation if no media
           return;
         } else {
-          // create news card if there are image
-          // console.log(media[0].url);
-          let image = media.find(image => image.subtype === 'articleInline');
+          // get xlarge image 
+          let image = media.find(image => image.subtype === 'xlarge');
           // bugfix if no image type found
           if(image) {
             let imageUrl = 'https://www.nytimes.com/' + image.url;
