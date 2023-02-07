@@ -1,7 +1,7 @@
 function getCard() {
   
     var queryURL = `https://restcountries.com/v2/name/${searchedCountry}?fullText=true`
-    console.log(searchedCountry)
+    
     $.ajax({
     url: queryURL,
     method: "GET"

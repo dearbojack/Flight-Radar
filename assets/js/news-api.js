@@ -2,7 +2,7 @@
 
 function readyFunc() {
     searchedCountry = localStorage.getItem("home")
-    buildQueryUrl(searchedCountry,2022)
+    buildQueryUrl(searchedCountry, 2022)
     getNews(searchedCountry)
     var location = $("#location-country")
     var dateTime = $("#location-date")
@@ -143,16 +143,18 @@ function generateDate(year) {
   let thisYear = parseInt(now.format("YYYY"));
 
   if ( !(year < thisYear) ) { return } else {
-    
+    // generate random date, and end date 6 month later
     let start = moment([year, Math.floor(Math.random() * 12), Math.floor(Math.random() * 30)]);
     let end = start.clone().add(6, 'months');
+    // if end is in the future or invalid date, re-generate random year
     while (!end.isValid() || end.isAfter(now)) {
       start = moment([year, Math.floor(Math.random() * 12), Math.floor(Math.random() * 30)]);
       end = start.clone().add(6, 'months');
     }
+    // format date into format that can be used in api call
     let startDate = moment(start.toDate()).format("YYYYMMDD");
     let endDate = moment(end.toDate()).format("YYYYMMDD");
-  
+    // return and object of startDate & endDate
     return { 
       start_date: startDate,
       end_date: endDate
@@ -161,24 +163,12 @@ function generateDate(year) {
   
 }
 
+// generate a random year between 2000 - 2023 (more likely to have image)
 function generateRandomYear() {
-  // generate a random year between 2000 - 2023 (more likely to have image)
   return year = Math.floor(Math.random() * (2022 - 2010 + 1)) + 2010;
 }
-
-$("#default").on("click", function() {
-  let queryUrl = buildQueryUrl("China", 2022);
-  getNews();
-})
 
 $("#random-country").on("click", function() {
   let queryUrl = buildQueryUrl(getRandomCountry(), 2022);
   getNews();
 })
-
-$("#feeling-lucky").on("click", function() {
-  let queryUrl = buildQueryUrl(getRandomCountry(), generateRandomYear());
-  getNews();
-})
-
- 
