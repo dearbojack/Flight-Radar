@@ -15,8 +15,11 @@ const weatherApiKey = "95d15e0dac6e9067bba1f640b9fb69f0";
 function renderTodayWeather(city) {
     // build the query url
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${weatherApiKey}`;
-    // clear existing content in #today
+    // clear existing content in #weather
     $("#weather").empty();
+    // clear weather icon in #display-icon
+    $("#display-icon").empty();
+    
     // fetch new weather content
     $.ajax({
         url: url,
