@@ -1,17 +1,19 @@
 let searchedCountry = '';
 let homeCountry = '';
 
- var queryURL = `https://restcountries.com/v2/all?fields=name`
-    console.log(searchedCountry)
-    $.ajax({
-    url: queryURL,
-    method: "GET"
-    }).then(function (response) {
-        console.log(response)
-        for(let i = 0; i < response.length; i++) {
-            countryList.push(response[i].name)
-        }
-        return countryList
+// an empty array of country common names
+let countryList = [];
+// query url for country common names
+const queryURL = `https://restcountries.com/v3.1/all?fields=name;commonName`
+
+$.ajax({
+url: queryURL,
+method: "GET"
+}).then(function (response) {
+    for(let i = 0; i < response.length; i++) {
+        countryList.push(response[i].name.common);
+    }
+    return countryList;
 })
 
 $('#form-submit').on('click', function(e){
