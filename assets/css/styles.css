@@ -159,6 +159,10 @@ body {
 }
 
 /* Statistics */
+#country-div:empty {
+    display: none;
+}
+
 #country-div {
     border: none;
     background-color: #e4e4e440;
