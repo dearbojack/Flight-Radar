@@ -272,10 +272,6 @@ footer {
 
 /* Tablet 1 with change to search buttons */
 @media only screen and (max-width: 1200px) and (min-width: 995px) {
-    #news-results {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
     #home-country {
         margin-top: 5%;
     }
@@ -304,6 +300,10 @@ footer {
     #country-stats {
         padding-top: 4.5%;
     }
+
+    #country-parent {
+        padding-top: 2%;
+    }
 }
 
 /* Phone */
@@ -316,8 +316,33 @@ footer {
         margin-top: 0 !important;
     }
 
-    .card {
-        margin: 30px;
+    #banner {
+        display: none;
+    }
+
+    #search-section {
+        padding-left: 7%;
+        padding-right: 7%;
+
+      }
+
+      #nationFlag {
+        max-width: 65%;
+    } 
+
+
+    #news-results .card {
+        max-width: 300px;
+        margin: 0 auto;
+        margin-top: 10%;
+    }
+
+    .jumbotron {
+        padding-top: 40px;
+    }
+
+    footer {
+        margin-top: 10%;
     }
 
 }
