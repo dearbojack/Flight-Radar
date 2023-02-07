@@ -310,11 +310,16 @@ footer {
     }
 
     #country-stats {
-        padding-top: 4.5%;
+        padding-top: 4%;
+        padding-bottom: 4%;
     }
 
     #country-parent {
         padding-top: 2%;
+    }
+
+    #country-header {
+        max-width: 350px;
     }
 }
 
