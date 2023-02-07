@@ -1,19 +1,20 @@
 function getCard() {
     
-    // fixing the bug of usa
-    if (searchedCountry === "United States") {
-      searchedCountry = "United States of America";
-      var queryURL = `https://restcountries.com/v2/name/${searchedCountry}?fullText=true`
-    } else {
-      var queryURL = `https://restcountries.com/v2/name/${searchedCountry}?fullText=true`
-    }
-    
-    
-    $.ajax({
-    url: queryURL,
-    method: "GET"
+  // fixing the bug of usa uk
+  if (searchedCountry === "United States") {
+    searchedCountry = "United States of America";
+    var queryURL = `https://restcountries.com/v2/name/${searchedCountry}?fullText=true`
+  } else if (searchedCountry === "United Kingdom" || searchedCountry === "United Kingdom") {
+    searchedCountry = "United Kingdom of Great Britain and Northern Ireland";
+    var queryURL = `https://restcountries.com/v2/name/${searchedCountry}?fullText=true`
+  } else {
+    var queryURL = `https://restcountries.com/v2/name/${searchedCountry}`
+  }
+
+  $.ajax({
+  url: queryURL,
+  method: "GET"
   }).then(function (response) {
-    
     // initialise variables to store response
     var name = response[0].name;
     var region = response[0].region;
@@ -107,24 +108,22 @@ function getCard() {
     curSymValue.css("font-weight", "400").text(currencysym)
     curSym.append(curSymValue)
 
-    
-       // create two divs
+  
+      // create two divs
 
-       var countryHeader = $('<div>').attr('id', 'country-header');
-       var countryStats = $('<div>').attr('id', 'country-stats');
-   
-   
-   
-       countryHeader.append(header);
-       countryHeader.append(cFlag);
-       countryStats.append(cap);
-       countryStats.append(population);
-       countryStats.append(language);
-       countryStats.append(dem);
-       countryStats.append(reg);
-       countryStats.append(subReg);
-       countryStats.append(cash);
-       countryStats.append(curSym);
-       country.append(countryHeader, countryStats)
-     });
+    var countryHeader = $('<div>').attr('id', 'country-header');
+    var countryStats = $('<div>').attr('id', 'country-stats');
+
+    countryHeader.append(header);
+    countryHeader.append(cFlag);
+    countryStats.append(cap);
+    countryStats.append(population);
+    countryStats.append(language);
+    countryStats.append(dem);
+    countryStats.append(reg);
+    countryStats.append(subReg);
+    countryStats.append(cash);
+    countryStats.append(curSym);
+    country.append(countryHeader, countryStats)
+  });
 }

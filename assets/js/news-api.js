@@ -161,8 +161,3 @@ function generateDate(year) {
 function generateRandomYear() {
   return year = Math.floor(Math.random() * (2022 - 2010 + 1)) + 2010;
 }
-
-$("#random-country").on("click", function() {
-  let queryUrl = buildQueryUrl(getRandomCountry(), 2022);
-  getNews();
-})
