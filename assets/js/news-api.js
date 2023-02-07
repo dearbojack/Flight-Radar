@@ -8,7 +8,9 @@ function readyFunc() {
     var dateTime = $("#location-date")
     location.text(localStorage.getItem("home"));
     dateTime.text(moment().format("ddd, Do MMM YY"))
-
+    getCapital(searchedCountry).then(capital => {
+      renderTodayWeather(capital);
+    })
 }
 
 
