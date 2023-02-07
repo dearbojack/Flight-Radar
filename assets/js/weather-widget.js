@@ -19,7 +19,7 @@ function renderTodayWeather(city) {
     $("#weather").empty();
     // clear weather icon in #display-icon
     $("#display-icon").empty();
-    
+
     // fetch new weather content
     $.ajax({
         url: url,
@@ -67,6 +67,10 @@ function renderTodayWeather(city) {
 }
 
 // get capital city for given country and then fetch its weather
-getCapital(searchCountry).then(capital => {
-    renderTodayWeather(capital);
-});
+if(!searchedCountry) {
+    getCapital(searchCountry).then(capital => {
+        renderTodayWeather(capital);
+    })
+} else {
+    return
+}
