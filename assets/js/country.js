@@ -120,10 +120,4 @@ function getCard() {
        countryStats.append(curSym);
        country.append(countryHeader, countryStats)
      });
-
- 
-
-  getCapital(searchedCountry).then(capital => {
-    renderTodayWeather(capital);
-});
 }
