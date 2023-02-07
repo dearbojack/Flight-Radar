@@ -1,6 +1,13 @@
 function getCard() {
-  
-    var queryURL = `https://restcountries.com/v2/name/${searchedCountry}?fullText=true`
+    
+    // fixing the bug of usa
+    if (searchedCountry === "United States") {
+      searchedCountry = "United States of America";
+      var queryURL = `https://restcountries.com/v2/name/${searchedCountry}?fullText=true`
+    } else {
+      var queryURL = `https://restcountries.com/v2/name/${searchedCountry}?fullText=true`
+    }
+    
     
     $.ajax({
     url: queryURL,

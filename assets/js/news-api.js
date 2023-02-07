@@ -29,6 +29,8 @@ function buildQueryUrl(country, year) {
 function getNews() {
   // clear the content
   $("#news-results").empty();
+  // limit results returned
+  const resultLimit = 9;
 
   // call api and fill in new content
   $.ajax({
@@ -40,7 +42,7 @@ function getNews() {
       // get the array of all news returned
       let docArray = r.response.docs;
       
-      for (let i = 0; i < docArray.length; i++) {
+      for (let i = 0; i < resultLimit; i++) {
         let media = r.response.docs[i].multimedia;
 
         if(media === []) {
