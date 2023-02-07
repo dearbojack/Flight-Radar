@@ -26,12 +26,11 @@ At the time of publishing this application, the three API's that populate result
 
 ## Application deployed
 
-![image of the password generator with the results shown & copied](/assets/2%20screenshots.png)
-![image of the password generator with the results shown & copied on a iPhone 12 Pro](/assets/iphone-2-screenshots.png)
+![image of the news website with the results populated](/assets/images/screenshot.png)
 
 
 ## Credits
-Author:
+Authors:
 - David Jones
 - Daniel Boxall
 - Dali Han
@@ -42,6 +41,6 @@ Global Gazette font
 
 We don't claim any intellectual property from the uses of the API's below.
 
-News: https://developer.nytimes.com/apis
-Weather: https://openweathermap.org/api
-Statistics: https://restcountries.com/
+- News: https://developer.nytimes.com/apis
+- Weather: https://openweathermap.org/api
+- Statistics: https://restcountries.com/
