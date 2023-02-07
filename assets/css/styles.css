@@ -199,6 +199,11 @@ body {
     height: auto;
     margin-bottom: 5%;
 }
+
+/* this will show via media query */
+#country-div-2 {
+    display: none; 
+}
 /* ASIDE (end) ---------------- */
 
 
@@ -303,7 +308,7 @@ footer {
 }
 
 /* Tablet 2 */
-@media only screen and (max-width: 994px) and (min-width: 500px) {
+@media only screen and (max-width: 997px) and (min-width: 500px) {
     /* #news-results {
         grid-template-columns: repeat(2, 1fr);
     } */
@@ -315,6 +320,28 @@ footer {
     #el2 {
         padding-right: 6%;
     }
+
+    #country-div {
+        display: none;
+    }
+
+    #country-div-2 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      
+      #country-div-2-img {
+        width: 50%;
+      }
+      
+      #country-div-2-text {
+        width: 50%;
+        text-align: center;
+      }
+      
+
+    
 }
 
 /* Phone */

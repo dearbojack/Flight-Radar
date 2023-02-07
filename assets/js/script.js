@@ -1,3 +1,4 @@
+// Change home location button (media query)
 var homeBtn = window.matchMedia("(max-width: 1000px)");
 
 $(window).on('resize', function() {

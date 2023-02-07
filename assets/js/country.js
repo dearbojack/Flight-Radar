@@ -111,6 +111,37 @@ function getCard() {
     country.append(subReg);
     country.append(cash);
     country.append(curSym);
+
+    // populate for the media query (tablet size)
+    var countryTabDiv1 = $("#country-div-2-img");
+    var countryTabDiv2 = $("#country-div-2-text");
+
+  //  clones where needed as you can't append an element twice
+    var divTitleClone = divTitle.clone();
+    var headerClone = header.clone();
+    var cFlagClone = cFlag.clone();
+    var capClone = cap.clone();
+    var populationClone = population.clone();
+    var languageClone = language.clone();
+    var demClone = dem.clone();
+    var regClone = reg.clone();
+    var subRegClone = subReg.clone();
+    var cashClone = cash.clone();
+    var curSymClone = curSym.clone();
+
+
+    countryTabDiv1.append(headerClone);
+    countryTabDiv1.append(cFlagClone);
+
+    countryTabDiv2.append(capClone)
+    countryTabDiv2.append(populationClone)
+    countryTabDiv2.append(languageClone)
+    countryTabDiv2.append(demClone)
+    countryTabDiv2.append(regClone)
+    countryTabDiv2.append(subRegClone)
+    countryTabDiv2.append(cashClone)
+    countryTabDiv2.append(curSymClone)
+
   });
 
   getCapital(searchedCountry).then(capital => {
