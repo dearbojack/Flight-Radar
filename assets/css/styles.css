@@ -283,10 +283,18 @@ footer {
     #el2 {
         padding-right: 6%;
     }
+
+    #country-div:empty {
+        display: none;
+    }
 }
 
 /* Tablet 2 */
 @media only screen and (max-width: 997px) and (min-width: 500px) {
+    #country-div:empty {
+        display: none;
+    }
+
     .card {
         margin: 20px;
     }
@@ -350,7 +358,5 @@ footer {
     }
 
 }
-
-
 /* MEDIA QUERY (end) ---------------- */
 
