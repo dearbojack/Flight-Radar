@@ -46,7 +46,8 @@ $( "#modal-text" ).autocomplete({
 
 $('#random-country').on('click', function(e) {
     e.preventDefault();
-    console.log('hey hey')
+    let queryUrl = buildQueryUrl(getRandomCountry(), 2022);
+    getNews();
 })
 
 $('#home-country').on('click', function(e) {

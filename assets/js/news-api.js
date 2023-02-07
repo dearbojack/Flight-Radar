@@ -8,6 +8,7 @@ function readyFunc() {
     var dateTime = $("#location-date");
     location.text(localStorage.getItem("home"));
     dateTime.text(moment().format("ddd, Do MMM YY"));
+    // get capital city and get it weather
     getCapital(searchedCountry).then(capital => {
       renderTodayWeather(capital);
     })
@@ -160,8 +161,3 @@ function generateDate(year) {
 function generateRandomYear() {
   return year = Math.floor(Math.random() * (2022 - 2010 + 1)) + 2010;
 }
-
-$("#random-country").on("click", function() {
-  let queryUrl = buildQueryUrl(getRandomCountry(), 2022);
-  getNews();
-})
