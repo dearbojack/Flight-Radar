@@ -1,13 +1,15 @@
+// fetch home location data from LocalStorage on page load
 $(document).ready(readyFunc);
 
 function readyFunc() {
+    // fetch localStorage
     searchedCountry = localStorage.getItem("home");
+    // get news
     buildQueryUrl(searchedCountry, 2022);
     getNews(searchedCountry);
-    var location = $("#location-country");
-    var dateTime = $("#location-date");
-    location.text(localStorage.getItem("home"));
-    dateTime.text(moment().format("ddd, Do MMM YY"));
+    // set location & date
+    $("#location-country").text(localStorage.getItem("home"));
+    $("#location-date").text(moment().format("ddd, Do MMM YY"));
     // get capital city and get it weather
     getCapital(searchedCountry).then(capital => {
       renderTodayWeather(capital);
