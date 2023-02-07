@@ -1,4 +1,4 @@
-  $(document).ready(readyFunc)
+$(document).ready(readyFunc)
 
 function readyFunc() {
     searchedCountry = localStorage.getItem("home")
@@ -12,9 +12,6 @@ function readyFunc() {
       renderTodayWeather(capital);
     })
 }
-
-
-
 
 // api to fetch news from NY Times
 
@@ -105,17 +102,9 @@ function getNews() {
           $("#news-results").append(newsCardDiv);
         }
       }
-
-      // add copyright footer // this can be hardcoded
-      // $("footer").empty();
-      // let credit = r.copyright;
-      // let footer = $("<footer>").text(credit);
-      // $("body").append(footer);
   });
   getCard(searchedCountry);
 }
-
-
 
 // func to calc reading time based on word count
 function calculateReadingTime(wordCount) {
@@ -124,8 +113,10 @@ function calculateReadingTime(wordCount) {
   // singlar or plural
   if(readingTime > 1) {
     return `${readingTime} min`
-  } else {
+  } else if (readingTime = 1){
     return `${readingTime} min`
+  } else {
+    return `<1 min`
   }
 }
 
