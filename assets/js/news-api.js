@@ -1,13 +1,13 @@
-$(document).ready(readyFunc)
+$(document).ready(readyFunc);
 
 function readyFunc() {
-    searchedCountry = localStorage.getItem("home")
-    buildQueryUrl(searchedCountry, 2022)
-    getNews(searchedCountry)
-    var location = $("#location-country")
-    var dateTime = $("#location-date")
+    searchedCountry = localStorage.getItem("home");
+    buildQueryUrl(searchedCountry, 2022);
+    getNews(searchedCountry);
+    var location = $("#location-country");
+    var dateTime = $("#location-date");
     location.text(localStorage.getItem("home"));
-    dateTime.text(moment().format("ddd, Do MMM YY"))
+    dateTime.text(moment().format("ddd, Do MMM YY"));
     getCapital(searchedCountry).then(capital => {
       renderTodayWeather(capital);
     })
@@ -113,7 +113,7 @@ function calculateReadingTime(wordCount) {
   // singlar or plural
   if(readingTime > 1) {
     return `${readingTime} min`
-  } else if (readingTime = 1){
+  } else if (readingTime === 1){
     return `${readingTime} min`
   } else {
     return `<1 min`
