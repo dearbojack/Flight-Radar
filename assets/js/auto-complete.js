@@ -31,6 +31,9 @@ $('#form-submit').on('click', function(e){
 $("#form-input").autocomplete({
     minLength: 3,
     source: countryList,
+    select: function (event, ui) {
+        countrySelect = ui.item.value;
+    }
 })
 
 // an event listener that sets a home country that is stored in local storage
@@ -43,12 +46,15 @@ $('#modal-button').on('click', function(e) {
 $( "#modal-text" ).autocomplete({
     minLength: 3,
     source: countryList,
+    select: function (event, ui) {
+        homeCountry = ui.item.value;
+    },
 });
 
 // provides a random country
 $('#random-country').on('click', function(e) {
     e.preventDefault();
-    buildQueryUrl(getRandomCountry(), 2022);
+    let queryUrl = buildQueryUrl(getRandomCountry(), 2022);
     getNews();
 })
 
