@@ -36,7 +36,7 @@ $("#form-input").autocomplete({
     }
 })
 
-// an event listener that sets a home country that is stored in local storage
+// an event listener that sets a home country that is stored in localstorage
 $('#modal-button').on('click', function(e) {
     homeCountry = $('#modal-text').val();
     localStorage.setItem('home', homeCountry);
